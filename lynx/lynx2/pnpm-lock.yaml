@@ -1,0 +1,516 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@lynx-js/web-core':
+        specifier: ^0.15.6
+        version: 0.15.6(@lynx-js/lynx-core@0.1.3)(@lynx-js/web-elements@0.8.4(tslib@2.8.1))
+      '@lynx-js/web-elements':
+        specifier: ^0.8.4
+        version: 0.8.4(tslib@2.8.1)
+      react:
+        specifier: ^19.1.1
+        version: 19.1.1
+      react-dom:
+        specifier: ^19.1.1
+        version: 19.1.1(react@19.1.1)
+      react-router:
+        specifier: '6'
+        version: 6.30.1(react@19.1.1)
+      react-webcam:
+        specifier: ^7.2.0
+        version: 7.2.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+    devDependencies:
+      '@rsbuild/core':
+        specifier: ^1.4.13
+        version: 1.4.16
+      '@rsbuild/plugin-react':
+        specifier: ^1.3.4
+        version: 1.3.5(@rsbuild/core@1.4.16)
+      '@types/react':
+        specifier: ^19.1.9
+        version: 19.1.11
+      '@types/react-dom':
+        specifier: ^19.1.7
+        version: 19.1.7(@types/react@19.1.11)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+
+packages:
+
+  '@emnapi/core@1.4.5':
+    resolution: {integrity: sha512-XsLw1dEOpkSX/WucdqUhPWP7hDxSvZiY+fsUC14h+FtQ2Ifni4znbBt8punRX+Uj2JG/uDb8nEHVKvrVlvdZ5Q==}
+
+  '@emnapi/runtime@1.4.5':
+    resolution: {integrity: sha512-++LApOtY0pEEz1zrd9vy1/zXVaVJJ/EbAF3u0fXIzPJEDtnITsBGbbK0EkM72amhl/R5b+5xx0Y/QhcVOpuulg==}
+
+  '@emnapi/wasi-threads@1.0.4':
+    resolution: {integrity: sha512-PJR+bOmMOPH8AtcTGAyYNiuJ3/Fcoj2XN/gBEWzDIKh254XO+mM9XoXHk5GNEhodxeMznbg7BlRojVbKN+gC6g==}
+
+  '@lynx-js/lynx-core@0.1.3':
+    resolution: {integrity: sha512-uWzKKYJUK4Q09ZRZxWSAFINnmZb9piWPbvWF9SkLn+3snBl9u/BJa4ekPRcKWAhBmpbtxWH1x27fxe3Q3p5l3Q==}
+
+  '@lynx-js/offscreen-document@0.1.3':
+    resolution: {integrity: sha512-XOrE+IeYcEOE2UzGTfwIrf7U+PvoogfMSPAQwcIQH8C73gHGZWv36B6lVGvXeeRqfGr6/5vilEjRjvqivfd1uA==}
+
+  '@lynx-js/web-constants@0.15.6':
+    resolution: {integrity: sha512-B07bk8phMhM165I/dVVPxH7ifbVB+csCeZCaOiIV7pGGBgirpnMzHFMD43i2ts7WT9/kqSUU/bXAZ2eRYsonzg==}
+
+  '@lynx-js/web-core@0.15.6':
+    resolution: {integrity: sha512-mVFo/QMLaUcLkNqPZUn94bcJulik+/X+lrNRze04NuIAcmHK/SrIdZvrv+yE85dsBuxnV944obU6FFj2HV70Vw==}
+    peerDependencies:
+      '@lynx-js/lynx-core': 0.1.3
+      '@lynx-js/web-elements': '>0.7.7'
+
+  '@lynx-js/web-elements-reactive@0.2.2':
+    resolution: {integrity: sha512-IVZJaD4IDtVMaFG14vwhavPH6RJPU+VgxN3NLgcRB+2DO+0Ks1/0hYAJuk/QskGF6A7haGsG9TW/EQ7mk1s/sg==}
+
+  '@lynx-js/web-elements-template@0.8.4':
+    resolution: {integrity: sha512-0oZ2epiyFh59uz2joa1F95xkCzsapz5N2NpCgPYTi5gUQqfsMazF/ryfmbwME+S0AfeQbdxWxTkvJpd5ifu62g==}
+
+  '@lynx-js/web-elements@0.8.4':
+    resolution: {integrity: sha512-RGNqmk6zkvU+fYfKo0d2+92M7/GIHiuX19M+hjBtwbh7nSpuiFKp4BE0KXW6muvZYo2EbZmf//iKi1njiJ3ZAg==}
+    peerDependencies:
+      tslib: ^2.5.0
+
+  '@lynx-js/web-mainthread-apis@0.15.6':
+    resolution: {integrity: sha512-i9aYz04yO+Gwn7Jex+2yN/v6NNQYPWwF3xT2Wqbym/zeo4mr8cndAgP9pwU4TXLPckHwbME1T1kqIxo95TWSYQ==}
+
+  '@lynx-js/web-style-transformer@0.15.6':
+    resolution: {integrity: sha512-vC6dIkTH9x+PBHaQ1ybGj6ifeRG6OL0AbIkvOykkITN+Xv0KQNyCH66oLjQcph3bjr0SKQHNZvpGzwG6R7w8OQ==}
+
+  '@lynx-js/web-worker-rpc@0.15.6':
+    resolution: {integrity: sha512-uSgT9ByFZ8ffISwc4T/gr6yRBixczcp1yY0jnPtmBTwXhXryjdoVteye68gyByITYStkhnMMIYiCZPHwKi4Q0Q==}
+
+  '@lynx-js/web-worker-runtime@0.15.6':
+    resolution: {integrity: sha512-92DFRbc3UlgdOF9Dj16YU+BZN6xFUlW9c2hppeF+7ALhwPuhb2Mfkl53gaEIcQ4N/x3tfYT2f7uNaROnaa1IZg==}
+    peerDependencies:
+      '@lynx-js/lynx-core': 0.1.3
+
+  '@module-federation/error-codes@0.17.1':
+    resolution: {integrity: sha512-n6Elm4qKSjwAPxLUGtwnl7qt4y1dxB8OpSgVvXBIzqI9p27a3ZXshLPLnumlpPg1Qudaj8sLnSnFtt9yGpt5yQ==}
+
+  '@module-federation/runtime-core@0.17.1':
+    resolution: {integrity: sha512-LCtIFuKgWPQ3E+13OyrVpuTPOWBMI/Ggwsq1Q874YeT8Px28b8tJRCj09DjyRFyhpSPyV/uG80T6iXPAUoLIfQ==}
+
+  '@module-federation/runtime-tools@0.17.1':
+    resolution: {integrity: sha512-4kr6zTFFwGywJx6whBtxsc84V+COAuuBpEdEbPZN//YLXhNB0iz2IGsy9r9wDl+06h84bD+3dQ05l9euRLgXzQ==}
+
+  '@module-federation/runtime@0.17.1':
+    resolution: {integrity: sha512-vKEN32MvUbpeuB/s6UXfkHDZ9N5jFyDDJnj83UTJ8n4N1jHIJu9VZ6Yi4/Ac8cfdvU8UIK9bIbfVXWbUYZUDsw==}
+
+  '@module-federation/sdk@0.17.1':
+    resolution: {integrity: sha512-nlUcN6UTEi+3HWF+k8wPy7gH0yUOmCT+xNatihkIVR9REAnr7BUvHFGlPJmx7WEbLPL46+zJUbtQHvLzXwFhng==}
+
+  '@module-federation/webpack-bundler-runtime@0.17.1':
+    resolution: {integrity: sha512-Swspdgf4PzcbvS9SNKFlBzfq8h/Qxwqjq/xRSqw1pqAZWondZQzwTTqPXhgrg0bFlz7qWjBS/6a8KuH/gRvGaQ==}
+
+  '@napi-rs/wasm-runtime@1.0.3':
+    resolution: {integrity: sha512-rZxtMsLwjdXkMUGC3WwsPwLNVqVqnTJT6MNIB6e+5fhMcSCPP0AOsNWuMQ5mdCq6HNjs/ZeWAEchpqeprqBD2Q==}
+
+  '@remix-run/router@1.23.0':
+    resolution: {integrity: sha512-O3rHJzAQKamUz1fvE0Qaw0xSFqsA/yafi2iqeE0pvdFtCO1viYx8QL6f3Ln/aCCTLxs68SLf0KPM9eSeM8yBnA==}
+    engines: {node: '>=14.0.0'}
+
+  '@rsbuild/core@1.4.16':
+    resolution: {integrity: sha512-t2684BBkqAh+dw/v00ySQc5P5SMul4a428L1qHwwIWFPAZ0bnus/hw/wI8nM2AQpMcKfJPkdyVSGm4ueCYPtPw==}
+    engines: {node: '>=16.10.0'}
+    hasBin: true
+
+  '@rsbuild/plugin-react@1.3.5':
+    resolution: {integrity: sha512-L/GoHgJV4j+EQbI4KOhe5EscM0OHgnSat1eR0Nt5P3JZxpJV2ryO5Yfx5jElPWOkYZZCuk+EWhHWDQ4CkeC5BQ==}
+    peerDependencies:
+      '@rsbuild/core': 1.x
+
+  '@rspack/binding-darwin-arm64@1.4.11':
+    resolution: {integrity: sha512-PrmBVhR8MC269jo6uQ+BMy1uwIDx0HAJYLQRQur8gXiehWabUBCRg/d4U9KR7rLzdaSScRyc5JWXR52T7/4MfA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@rspack/binding-darwin-x64@1.4.11':
+    resolution: {integrity: sha512-YIV8Wzy+JY0SoSsVtN4wxFXOjzxxVPnVXNswrrfqVUTPr9jqGOFYUWCGpbt8lcCgfuBFm6zN8HpOsKm1xUNsVA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@rspack/binding-linux-arm64-gnu@1.4.11':
+    resolution: {integrity: sha512-ms6uwECUIcu+6e82C5HJhRMHnfsI+l33v7XQezntzRPN0+sG3EpikEoT7SGbgt4vDwaWLR7wS20suN4qd5r3GA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@rspack/binding-linux-arm64-musl@1.4.11':
+    resolution: {integrity: sha512-9evq0DOdxMN/H8VM8ZmyY9NSuBgILNVV6ydBfVPMHPx4r1E7JZGpWeKDegZcS5Erw3sS9kVSIxyX78L5PDzzKw==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@rspack/binding-linux-x64-gnu@1.4.11':
+    resolution: {integrity: sha512-bHYFLxPPYBOSaHdQbEoCYGMQ1gOrEWj7Mro/DLfSHZi1a0okcQ2Q1y0i1DczReim3ZhLGNrK7k1IpFXCRbAobQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@rspack/binding-linux-x64-musl@1.4.11':
+    resolution: {integrity: sha512-wrm4E7q2k4+cwT6Uhp6hIQ3eUe/YoaUttj6j5TqHYZX6YeLrNPtD9+ne6lQQ17BV8wmm6NZsmoFIJ5xIptpRhQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@rspack/binding-wasm32-wasi@1.4.11':
+    resolution: {integrity: sha512-hiYxHZjaZ17wQtXyLCK0IdtOvMWreGVTiGsaHCxyeT+SldDG+r16bXNjmlqfZsjlfl1mkAqKz1dg+mMX28OTqw==}
+    cpu: [wasm32]
+
+  '@rspack/binding-win32-arm64-msvc@1.4.11':
+    resolution: {integrity: sha512-+HF/mnjmTr8PC1dccRt1bkrD2tPDGeqvXC1BBLYd/Klq1VbtIcnrhfmvQM6KaXbiLcY9VWKzcZPOTmnyZ8TaHQ==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@rspack/binding-win32-ia32-msvc@1.4.11':
+    resolution: {integrity: sha512-EU2fQGwrRfwFd/tcOInlD0jy6gNQE4Q3Ayj0Is+cX77sbhPPyyOz0kZDEaQ4qaN2VU8w4Hu/rrD7c0GAKLFvCw==}
+    cpu: [ia32]
+    os: [win32]
+
+  '@rspack/binding-win32-x64-msvc@1.4.11':
+    resolution: {integrity: sha512-1Nc5ZzWqfvE+iJc47qtHFzYYnHsC3awavXrCo74GdGip1vxtksM3G30BlvAQHHVtEmULotWqPbjZpflw/Xk9Ag==}
+    cpu: [x64]
+    os: [win32]
+
+  '@rspack/binding@1.4.11':
+    resolution: {integrity: sha512-maGl/zRwnl0QVwkBCkgjn5PH20L9HdlRIdkYhEsfTepy5x2QZ0ti/0T49djjTJQrqb+S1i6wWQymMMMMMsxx6Q==}
+
+  '@rspack/core@1.4.11':
+    resolution: {integrity: sha512-JtKnL6p7Kc/YgWQJF3Woo4OccbgKGyT/4187W4dyex8BMkdQcbqCNIdi6dFk02hwQzxpOOxRSBI4hlGRbz7oYQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@swc/helpers': '>=0.5.1'
+    peerDependenciesMeta:
+      '@swc/helpers':
+        optional: true
+
+  '@rspack/lite-tapable@1.0.1':
+    resolution: {integrity: sha512-VynGOEsVw2s8TAlLf/uESfrgfrq2+rcXB1muPJYBWbsm1Oa6r5qVQhjA5ggM6z/coYPrsVMgovl3Ff7Q7OCp1w==}
+    engines: {node: '>=16.0.0'}
+
+  '@rspack/plugin-react-refresh@1.4.3':
+    resolution: {integrity: sha512-wZx4vWgy5oMEvgyNGd/oUKcdnKaccYWHCRkOqTdAPJC3WcytxhTX+Kady8ERurSBiLyQpoMiU3Iyd+F1Y2Arbw==}
+    peerDependencies:
+      react-refresh: '>=0.10.0 <1.0.0'
+      webpack-hot-middleware: 2.x
+    peerDependenciesMeta:
+      webpack-hot-middleware:
+        optional: true
+
+  '@swc/helpers@0.5.17':
+    resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
+
+  '@tybys/wasm-util@0.10.0':
+    resolution: {integrity: sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==}
+
+  '@types/react-dom@19.1.7':
+    resolution: {integrity: sha512-i5ZzwYpqjmrKenzkoLM2Ibzt6mAsM7pxB6BCIouEVVmgiqaMj1TjaK7hnA36hbW5aZv20kx7Lw6hWzPWg0Rurw==}
+    peerDependencies:
+      '@types/react': ^19.0.0
+
+  '@types/react@19.1.11':
+    resolution: {integrity: sha512-lr3jdBw/BGj49Eps7EvqlUaoeA0xpj3pc0RoJkHpYaCHkVK7i28dKyImLQb3JVlqs3aYSXf7qYuWOW/fgZnTXQ==}
+
+  core-js@3.45.1:
+    resolution: {integrity: sha512-L4NPsJlCfZsPeXukyzHFlg/i7IIVwHSItR0wg0FLNqYClJ4MQYTYLbC7EkjKYRLZF2iof2MUgN0EGy7MdQFChg==}
+
+  csstype@3.1.3:
+    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  error-stack-parser@2.1.4:
+    resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
+
+  html-entities@2.6.0:
+    resolution: {integrity: sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ==}
+
+  hyphenate-style-name@1.1.0:
+    resolution: {integrity: sha512-WDC/ui2VVRrz3jOVi+XtjqkDjiVjTtFaAGiW37k6b+ohyQ5wYDOGkvCZa8+H0nx3gyvv0+BST9xuOgIyGQ00gw==}
+
+  jiti@2.5.1:
+    resolution: {integrity: sha512-twQoecYPiVA5K/h6SxtORw/Bs3ar+mLUtoPSc7iMXzQzK8d7eJ/R09wmTwAjiamETn1cXYPGfNnu7DMoHgu12w==}
+    hasBin: true
+
+  react-dom@19.1.1:
+    resolution: {integrity: sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==}
+    peerDependencies:
+      react: ^19.1.1
+
+  react-refresh@0.17.0:
+    resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
+    engines: {node: '>=0.10.0'}
+
+  react-router@6.30.1:
+    resolution: {integrity: sha512-X1m21aEmxGXqENEPG3T6u0Th7g0aS4ZmoNynhbs+Cn+q+QGTLt+d5IQ2bHAXKzKcxGJjxACpVbnYQSCRcfxHlQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+
+  react-webcam@7.2.0:
+    resolution: {integrity: sha512-xkrzYPqa1ag2DP+2Q/kLKBmCIfEx49bVdgCCCcZf88oF+0NPEbkwYk3/s/C7Zy0mhM8k+hpdNkBLzxg8H0aWcg==}
+    peerDependencies:
+      react: '>=16.2.0'
+      react-dom: '>=16.2.0'
+
+  react@19.1.1:
+    resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
+    engines: {node: '>=0.10.0'}
+
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+
+  stackframe@1.3.4:
+    resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  wasm-feature-detect@1.8.0:
+    resolution: {integrity: sha512-zksaLKM2fVlnB5jQQDqKXXwYHLQUVH9es+5TOOHwGOVJOCeRBCiPjwSg+3tN2AdTCzjgli4jijCH290kXb/zWQ==}
+
+snapshots:
+
+  '@emnapi/core@1.4.5':
+    dependencies:
+      '@emnapi/wasi-threads': 1.0.4
+      tslib: 2.8.1
+    optional: true
+
+  '@emnapi/runtime@1.4.5':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@emnapi/wasi-threads@1.0.4':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@lynx-js/lynx-core@0.1.3': {}
+
+  '@lynx-js/offscreen-document@0.1.3': {}
+
+  '@lynx-js/web-constants@0.15.6':
+    dependencies:
+      '@lynx-js/web-worker-rpc': 0.15.6
+
+  '@lynx-js/web-core@0.15.6(@lynx-js/lynx-core@0.1.3)(@lynx-js/web-elements@0.8.4(tslib@2.8.1))':
+    dependencies:
+      '@lynx-js/lynx-core': 0.1.3
+      '@lynx-js/offscreen-document': 0.1.3
+      '@lynx-js/web-constants': 0.15.6
+      '@lynx-js/web-elements': 0.8.4(tslib@2.8.1)
+      '@lynx-js/web-mainthread-apis': 0.15.6
+      '@lynx-js/web-worker-rpc': 0.15.6
+      '@lynx-js/web-worker-runtime': 0.15.6(@lynx-js/lynx-core@0.1.3)
+
+  '@lynx-js/web-elements-reactive@0.2.2': {}
+
+  '@lynx-js/web-elements-template@0.8.4': {}
+
+  '@lynx-js/web-elements@0.8.4(tslib@2.8.1)':
+    dependencies:
+      '@lynx-js/web-elements-reactive': 0.2.2
+      '@lynx-js/web-elements-template': 0.8.4
+      tslib: 2.8.1
+
+  '@lynx-js/web-mainthread-apis@0.15.6':
+    dependencies:
+      '@lynx-js/web-constants': 0.15.6
+      '@lynx-js/web-style-transformer': 0.15.6
+      hyphenate-style-name: 1.1.0
+
+  '@lynx-js/web-style-transformer@0.15.6':
+    dependencies:
+      wasm-feature-detect: 1.8.0
+
+  '@lynx-js/web-worker-rpc@0.15.6': {}
+
+  '@lynx-js/web-worker-runtime@0.15.6(@lynx-js/lynx-core@0.1.3)':
+    dependencies:
+      '@lynx-js/lynx-core': 0.1.3
+      '@lynx-js/offscreen-document': 0.1.3
+      '@lynx-js/web-constants': 0.15.6
+      '@lynx-js/web-mainthread-apis': 0.15.6
+      '@lynx-js/web-worker-rpc': 0.15.6
+
+  '@module-federation/error-codes@0.17.1': {}
+
+  '@module-federation/runtime-core@0.17.1':
+    dependencies:
+      '@module-federation/error-codes': 0.17.1
+      '@module-federation/sdk': 0.17.1
+
+  '@module-federation/runtime-tools@0.17.1':
+    dependencies:
+      '@module-federation/runtime': 0.17.1
+      '@module-federation/webpack-bundler-runtime': 0.17.1
+
+  '@module-federation/runtime@0.17.1':
+    dependencies:
+      '@module-federation/error-codes': 0.17.1
+      '@module-federation/runtime-core': 0.17.1
+      '@module-federation/sdk': 0.17.1
+
+  '@module-federation/sdk@0.17.1': {}
+
+  '@module-federation/webpack-bundler-runtime@0.17.1':
+    dependencies:
+      '@module-federation/runtime': 0.17.1
+      '@module-federation/sdk': 0.17.1
+
+  '@napi-rs/wasm-runtime@1.0.3':
+    dependencies:
+      '@emnapi/core': 1.4.5
+      '@emnapi/runtime': 1.4.5
+      '@tybys/wasm-util': 0.10.0
+    optional: true
+
+  '@remix-run/router@1.23.0': {}
+
+  '@rsbuild/core@1.4.16':
+    dependencies:
+      '@rspack/core': 1.4.11(@swc/helpers@0.5.17)
+      '@rspack/lite-tapable': 1.0.1
+      '@swc/helpers': 0.5.17
+      core-js: 3.45.1
+      jiti: 2.5.1
+
+  '@rsbuild/plugin-react@1.3.5(@rsbuild/core@1.4.16)':
+    dependencies:
+      '@rsbuild/core': 1.4.16
+      '@rspack/plugin-react-refresh': 1.4.3(react-refresh@0.17.0)
+      react-refresh: 0.17.0
+    transitivePeerDependencies:
+      - webpack-hot-middleware
+
+  '@rspack/binding-darwin-arm64@1.4.11':
+    optional: true
+
+  '@rspack/binding-darwin-x64@1.4.11':
+    optional: true
+
+  '@rspack/binding-linux-arm64-gnu@1.4.11':
+    optional: true
+
+  '@rspack/binding-linux-arm64-musl@1.4.11':
+    optional: true
+
+  '@rspack/binding-linux-x64-gnu@1.4.11':
+    optional: true
+
+  '@rspack/binding-linux-x64-musl@1.4.11':
+    optional: true
+
+  '@rspack/binding-wasm32-wasi@1.4.11':
+    dependencies:
+      '@napi-rs/wasm-runtime': 1.0.3
+    optional: true
+
+  '@rspack/binding-win32-arm64-msvc@1.4.11':
+    optional: true
+
+  '@rspack/binding-win32-ia32-msvc@1.4.11':
+    optional: true
+
+  '@rspack/binding-win32-x64-msvc@1.4.11':
+    optional: true
+
+  '@rspack/binding@1.4.11':
+    optionalDependencies:
+      '@rspack/binding-darwin-arm64': 1.4.11
+      '@rspack/binding-darwin-x64': 1.4.11
+      '@rspack/binding-linux-arm64-gnu': 1.4.11
+      '@rspack/binding-linux-arm64-musl': 1.4.11
+      '@rspack/binding-linux-x64-gnu': 1.4.11
+      '@rspack/binding-linux-x64-musl': 1.4.11
+      '@rspack/binding-wasm32-wasi': 1.4.11
+      '@rspack/binding-win32-arm64-msvc': 1.4.11
+      '@rspack/binding-win32-ia32-msvc': 1.4.11
+      '@rspack/binding-win32-x64-msvc': 1.4.11
+
+  '@rspack/core@1.4.11(@swc/helpers@0.5.17)':
+    dependencies:
+      '@module-federation/runtime-tools': 0.17.1
+      '@rspack/binding': 1.4.11
+      '@rspack/lite-tapable': 1.0.1
+    optionalDependencies:
+      '@swc/helpers': 0.5.17
+
+  '@rspack/lite-tapable@1.0.1': {}
+
+  '@rspack/plugin-react-refresh@1.4.3(react-refresh@0.17.0)':
+    dependencies:
+      error-stack-parser: 2.1.4
+      html-entities: 2.6.0
+      react-refresh: 0.17.0
+
+  '@swc/helpers@0.5.17':
+    dependencies:
+      tslib: 2.8.1
+
+  '@tybys/wasm-util@0.10.0':
+    dependencies:
+      tslib: 2.8.1
+    optional: true
+
+  '@types/react-dom@19.1.7(@types/react@19.1.11)':
+    dependencies:
+      '@types/react': 19.1.11
+
+  '@types/react@19.1.11':
+    dependencies:
+      csstype: 3.1.3
+
+  core-js@3.45.1: {}
+
+  csstype@3.1.3: {}
+
+  error-stack-parser@2.1.4:
+    dependencies:
+      stackframe: 1.3.4
+
+  html-entities@2.6.0: {}
+
+  hyphenate-style-name@1.1.0: {}
+
+  jiti@2.5.1: {}
+
+  react-dom@19.1.1(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      scheduler: 0.26.0
+
+  react-refresh@0.17.0: {}
+
+  react-router@6.30.1(react@19.1.1):
+    dependencies:
+      '@remix-run/router': 1.23.0
+      react: 19.1.1
+
+  react-webcam@7.2.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+
+  react@19.1.1: {}
+
+  scheduler@0.26.0: {}
+
+  stackframe@1.3.4: {}
+
+  tslib@2.8.1: {}
+
+  typescript@5.9.2: {}
+
+  wasm-feature-detect@1.8.0: {}
