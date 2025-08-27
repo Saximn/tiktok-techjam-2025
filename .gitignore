@@ -1,0 +1,21 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+node_modules
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+plan_overview.md
+queue_tasks_json_lines
+
+# roomode
+/roomode.lock
+.roo/
+.roomodes
