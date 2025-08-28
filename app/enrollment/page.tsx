@@ -347,7 +347,7 @@ export default function EnrollmentPage() {
 
           {/* Preview Step */}
           {enrollmentStep === "preview" && (
-            <Card className="shadow-xl border border-gray-200 dark:border-gray-700">
+            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-black dark:text-white">
                   Review & Confirm
@@ -357,62 +357,65 @@ export default function EnrollmentPage() {
                   will work.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-semibold mb-3 text-black dark:text-white">
-                      Your Information
-                    </h3>
-                    <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <p className="text-black dark:text-white">
-                        <span className="font-medium">Name:</span>{" "}
-                        {form.getValues("fullName")}
-                      </p>
-                      <p className="text-black dark:text-white">
-                        <span className="font-medium">Status:</span>{" "}
-                        <Badge className="ml-2 bg-black text-white dark:bg-white dark:text-black">
-                          Whitelisted
-                        </Badge>
-                      </p>
-                      <p className="text-black dark:text-white">
-                        <span className="font-medium">Enrollment Date:</span>{" "}
-                        {new Date().toLocaleDateString()}
-                      </p>
+              <CardContent className="flex-1 flex flex-col">
+                <div className="space-y-6 flex-1">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold mb-3 text-black dark:text-white">
+                        Your Information
+                      </h3>
+                      <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <p className="text-black dark:text-white">
+                          <span className="font-medium">Name:</span>{" "}
+                          {form.getValues("fullName")}
+                        </p>
+                        <p className="text-black dark:text-white">
+                          <span className="font-medium">Status:</span>{" "}
+                          <Badge className="ml-2 bg-black text-white dark:bg-white dark:text-black">
+                            Whitelisted
+                          </Badge>
+                        </p>
+                        <p className="text-black dark:text-white">
+                          <span className="font-medium">Enrollment Date:</span>{" "}
+                          {new Date().toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-3 text-black dark:text-white">
+                        Face Recognition Preview
+                      </h3>
+                      <FacePreview
+                        faces={[
+                          ...mockFaces,
+                          {
+                            id: "3",
+                            name: form.getValues("fullName"),
+                            image:
+                              capturedPhotos[0] || "/placeholder-avatar.jpg",
+                            whitelisted: true,
+                          },
+                        ]}
+                      />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-3 text-black dark:text-white">
-                      Face Recognition Preview
-                    </h3>
-                    <FacePreview
-                      faces={[
-                        ...mockFaces,
-                        {
-                          id: "3",
-                          name: form.getValues("fullName"),
-                          image: capturedPhotos[0] || "/placeholder-avatar.jpg",
-                          whitelisted: true,
-                        },
-                      ]}
-                    />
-                  </div>
-                </div>
-                <div className="flex justify-between">
-                  <Button
-                    variant="outline"
-                    onClick={() => setEnrollmentStep("form")}
-                    className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                  >
-                    Back
-                  </Button>
-                  <Button
-                    onClick={handleComplete}
-                    className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-                  >
-                    Complete Enrollment ✓
-                  </Button>
                 </div>
               </CardContent>
+              <div className="flex justify-between px-6 pb-6 mt-auto">
+                <Button
+                  variant="outline"
+                  onClick={() => setEnrollmentStep("form")}
+                  className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={handleComplete}
+                  className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                >
+                  Complete Enrollment
+                </Button>
+              </div>
             </Card>
           )}
 
