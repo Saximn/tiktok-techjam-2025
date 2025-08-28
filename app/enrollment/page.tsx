@@ -167,7 +167,7 @@ export default function EnrollmentPage() {
 
           {/* Introduction Step */}
           {enrollmentStep === "intro" && (
-            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
+            <Card className="flex flex-col h-[700px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader className="pb-4">
                 <CardTitle className="text-2xl text-black dark:text-white">
                   Welcome to VirtualSecure
@@ -219,9 +219,9 @@ export default function EnrollmentPage() {
 
           {/* Camera Capture Step */}
           {enrollmentStep === "capture" && (
-            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
+            <Card className="flex flex-col h-[700px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader className="pb-4">
-                <CardTitle className="text-2xl text-black dark:text-white">
+                <CardTitle className="flex items-center justify-center gap-2 text-black dark:text-white">
                   Face Capture
                 </CardTitle>
                 <CardDescription className="text-gray-600 dark:text-gray-400">
@@ -253,9 +253,9 @@ export default function EnrollmentPage() {
 
           {/* Form Step */}
           {enrollmentStep === "form" && (
-            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
+            <Card className="flex flex-col h-[700px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-black dark:text-white">
+                <CardTitle className="flex items-center justify-center gap-2 text-black dark:text-white">
                   Personal Details
                 </CardTitle>
                 <CardDescription className="text-gray-600 dark:text-gray-400">
@@ -347,9 +347,9 @@ export default function EnrollmentPage() {
 
           {/* Preview Step */}
           {enrollmentStep === "preview" && (
-            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-black dark:text-white">
+            <Card className="flex flex-col h-[700px] shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="flex items-center justify-center gap-2 text-black dark:text-white">
                   Review & Confirm
                 </CardTitle>
                 <CardDescription className="text-gray-600 dark:text-gray-400">
@@ -359,32 +359,29 @@ export default function EnrollmentPage() {
               </CardHeader>
               <CardContent className="flex-1 flex flex-col">
                 <div className="space-y-6 flex-1">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
+                  <div className="space-y-6">
+                    <div className="text-left">
                       <h3 className="font-semibold mb-3 text-black dark:text-white">
                         Your Information
                       </h3>
-                      <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                        <p className="text-black dark:text-white">
+                      <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 text-left">
+                        <p className="text-black dark:text-white text-left">
                           <span className="font-medium">Name:</span>{" "}
                           {form.getValues("fullName")}
                         </p>
-                        <p className="text-black dark:text-white">
+                        <p className="text-black dark:text-white text-left">
                           <span className="font-medium">Status:</span>{" "}
                           <Badge className="ml-2 bg-black text-white dark:bg-white dark:text-black">
                             Whitelisted
                           </Badge>
                         </p>
-                        <p className="text-black dark:text-white">
+                        <p className="text-black dark:text-white text-left">
                           <span className="font-medium">Enrollment Date:</span>{" "}
                           {new Date().toLocaleDateString()}
                         </p>
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-3 text-black dark:text-white">
-                        Face Recognition Preview
-                      </h3>
                       <FacePreview
                         faces={[
                           ...mockFaces,
