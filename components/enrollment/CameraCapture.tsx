@@ -11,7 +11,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-export function CameraCapture() {
+interface CameraCaptureProps {
+  onPhotosChange?: (photos: string[]) => void;
+}
+
+export function CameraCapture({ onPhotosChange }: CameraCaptureProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -92,7 +96,11 @@ export function CameraCapture() {
       ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
       //convert canvas image to base64 and stores it as text string in memory
       const dataUrl = canvas.toDataURL("image/png");
-      setCapturedPhotos((prev) => [...prev, dataUrl]);
+      const newPhotos = [...capturedPhotos, dataUrl];
+      setCapturedPhotos(newPhotos);
+
+      // Notify parent component of the change
+      onPhotosChange?.(newPhotos);
 
       // Show success message briefly
       setShowCaptureSuccess(true);
@@ -115,12 +123,17 @@ export function CameraCapture() {
 
   const handleRetakePhoto = () => {
     setCapturedPhotos([]);
+    // Notify parent component of the change
+    onPhotosChange?.([]);
   };
 
   const handleDeletePhoto = (indexToDelete: number) => {
-    setCapturedPhotos((prev) =>
-      prev.filter((_, index) => index !== indexToDelete)
+    const newPhotos = capturedPhotos.filter(
+      (_, index) => index !== indexToDelete
     );
+    setCapturedPhotos(newPhotos);
+    // Notify parent component of the change
+    onPhotosChange?.(newPhotos);
   };
 
   useEffect(() => {
@@ -206,7 +219,11 @@ export function CameraCapture() {
               size="lg"
               onClick={handleStartCamera}
             >
-              {capturedPhotos.length > 0 ? "Take More Photos" : "Start Camera"}
+              {capturedPhotos.length >= 4
+                ? "Retake Photos"
+                : capturedPhotos.length > 0
+                ? "Take More Photos"
+                : "Start Camera"}
             </Button>
             {capturedPhotos.length > 0 && (
               <Button

@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import {
   Card,
   CardHeader,
@@ -9,15 +12,44 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { CameraCapture } from "@/components/enrollment/CameraCapture";
 import { FacePreview } from "@/components/enrollment/FacePreview";
+
+const formSchema = z.object({
+  fullName: z.string().min(2, {
+    message: "Full name must be at least 2 characters.",
+  }),
+  email: z
+    .string()
+    .email({
+      message: "Please enter a valid email address.",
+    })
+    .optional()
+    .or(z.literal("")),
+});
 
 export default function EnrollmentPage() {
   const [enrollmentStep, setEnrollmentStep] = useState<
     "intro" | "capture" | "form" | "preview" | "complete"
   >("intro");
-  const [userName, setUserName] = useState("");
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [capturedPhotos, setCapturedPhotos] = useState<string[]>([]);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+    },
+  });
 
   // Mock data for face preview
   const mockFaces = [
@@ -35,11 +67,9 @@ export default function EnrollmentPage() {
     },
   ];
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (userName.trim()) {
-      setEnrollmentStep("preview");
-    }
+  const handleFormSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+    setEnrollmentStep("preview");
   };
 
   const handleComplete = () => {
@@ -154,7 +184,7 @@ export default function EnrollmentPage() {
                       Face Capture
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      We'll capture your face for secure identification
+                      We&apos;ll capture your face for secure identification
                     </p>
                   </div>
                   <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
@@ -200,7 +230,7 @@ export default function EnrollmentPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col">
-                <CameraCapture />
+                <CameraCapture onPhotosChange={setCapturedPhotos} />
               </CardContent>
               <div className="flex justify-between px-6 pb-6 mt-auto">
                 <Button
@@ -212,7 +242,7 @@ export default function EnrollmentPage() {
                 </Button>
                 <Button
                   onClick={() => setEnrollmentStep("form")}
-                  disabled={!capturedImage}
+                  disabled={capturedPhotos.length === 0}
                   className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 >
                   Continue →
@@ -223,7 +253,7 @@ export default function EnrollmentPage() {
 
           {/* Form Step */}
           {enrollmentStep === "form" && (
-            <Card className="shadow-xl border border-gray-200 dark:border-gray-700">
+            <Card className="flex flex-col h-[600px] text-center shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-black dark:text-white">
                   Personal Details
@@ -232,66 +262,86 @@ export default function EnrollmentPage() {
                   Provide your information to complete the enrollment process.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleFormSubmit} className="space-y-6">
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-black dark:text-white">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        value={userName}
-                        onChange={(e) => setUserName(e.target.value)}
-                        placeholder="Enter your full name"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent bg-white dark:bg-black text-black dark:text-white"
-                        required
+              <CardContent className="flex-1 flex flex-col">
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(handleFormSubmit)}
+                    className="space-y-6 flex-1 flex flex-col"
+                  >
+                    <div className="space-y-4 flex-1">
+                      <FormField
+                        control={form.control}
+                        name="fullName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium text-black dark:text-white">
+                              Full Name
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Enter your full name"
+                                className="w-full px-6 py-4 text-lg border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent bg-white dark:bg-black text-black dark:text-white h-14"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2 text-black dark:text-white">
-                        Email (Optional)
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="your.email@example.com"
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent bg-white dark:bg-black text-black dark:text-white"
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-medium text-black dark:text-white">
+                              Email (Optional)
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="email"
+                                placeholder="your.email@example.com"
+                                className="w-full px-6 py-4 text-lg border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent bg-white dark:bg-black text-black dark:text-white h-14"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <div className="flex items-start gap-2">
-                        <div className="h-5 w-5 bg-black dark:bg-white rounded mt-0.5"></div>
-                        <div>
-                          <h4 className="font-medium text-black dark:text-white">
-                            Privacy Notice
-                          </h4>
-                          <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                            Your facial data is encrypted and stored securely.
-                            It will only be used for identification during
-                            streams.
-                          </p>
+                      <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <div className="flex items-start gap-2">
+                          <div>
+                            <h4 className="font-medium text-black dark:text-white">
+                              Privacy Notice
+                            </h4>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
+                              Your facial data is encrypted and stored securely.
+                              It will only be used for identification during
+                              streams.
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setEnrollmentStep("capture")}
-                      className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                    >
-                      Back
-                    </Button>
-                    <Button
-                      type="submit"
-                      className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-                    >
-                      Review Enrollment →
-                    </Button>
-                  </div>
-                </form>
+                  </form>
+                </Form>
               </CardContent>
+              <div className="flex justify-between px-6 pb-6 mt-auto">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setEnrollmentStep("capture")}
+                  className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={form.handleSubmit(handleFormSubmit)}
+                  className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                >
+                  Review Enrollment →
+                </Button>
+              </div>
             </Card>
           )}
 
@@ -315,7 +365,8 @@ export default function EnrollmentPage() {
                     </h3>
                     <div className="space-y-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
                       <p className="text-black dark:text-white">
-                        <span className="font-medium">Name:</span> {userName}
+                        <span className="font-medium">Name:</span>{" "}
+                        {form.getValues("fullName")}
                       </p>
                       <p className="text-black dark:text-white">
                         <span className="font-medium">Status:</span>{" "}
@@ -338,8 +389,8 @@ export default function EnrollmentPage() {
                         ...mockFaces,
                         {
                           id: "3",
-                          name: userName,
-                          image: capturedImage || "/placeholder-avatar.jpg",
+                          name: form.getValues("fullName"),
+                          image: capturedPhotos[0] || "/placeholder-avatar.jpg",
                           whitelisted: true,
                         },
                       ]}
@@ -380,14 +431,14 @@ export default function EnrollmentPage() {
                   Enrollment Complete!
                 </CardTitle>
                 <CardDescription className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-                  You've been successfully added to the whitelist. You can now
-                  start streaming with face recognition enabled.
+                  You&apos;ve been successfully added to the whitelist. You can
+                  now start streaming with face recognition enabled.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
                   <h3 className="font-semibold text-black dark:text-white mb-2">
-                    What's Next?
+                    What&apos;s Next?
                   </h3>
                   <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 text-left max-w-md mx-auto">
                     <li>
@@ -402,8 +453,8 @@ export default function EnrollmentPage() {
                   <Button
                     onClick={() => {
                       setEnrollmentStep("intro");
-                      setUserName("");
-                      setCapturedImage(null);
+                      form.reset();
+                      setCapturedPhotos([]);
                     }}
                     variant="outline"
                     className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
