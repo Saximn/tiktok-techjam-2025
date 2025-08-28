@@ -77,14 +77,20 @@ export function CameraCapture() {
     }
   }, [showPreview, mediaStream]);
 
+  //Capture Photo function
   const handleCapturePhoto = () => {
+    //exit function if there is no video element
     if (!videoRef.current) return;
+    //creates canvas in memory and capture the current camera frame
     const canvas = document.createElement("canvas");
     canvas.width = videoRef.current.videoWidth;
     canvas.height = videoRef.current.videoHeight;
+    //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
     const ctx = canvas.getContext("2d");
     if (ctx) {
+      //copies video frame to canvas
       ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+      //convert canvas image to base64 and stores it as text string in memory
       const dataUrl = canvas.toDataURL("image/png");
       setCapturedPhotos((prev) => [...prev, dataUrl]);
 
@@ -137,44 +143,57 @@ export function CameraCapture() {
         )}
 
         <div className="text-center">
-          <div className="mx-auto mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">
-            <User />
-          </div>
+          {capturedPhotos.length === 0 && (
+            <>
+              <div className="mx-auto mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">
+                <User />
+              </div>
 
-          <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
-            Face Capture
-          </h3>
+              <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
+                Face Capture
+              </h3>
 
-          <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
-            {!isCameraStarted
-              ? "Click the button below to start your camera and capture your face for enrollment."
-              : capturedPhotos.length > 0
-              ? "Photo captured successfully! You can retake or continue with enrollment."
-              : "Camera is ready. Position your face in the preview and capture your photo."}
-          </p>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
+                {!isCameraStarted
+                  ? "Click the button below to start your camera and capture your face for enrollment."
+                  : "Camera is ready. Position your face in the preview and capture your photo."}
+              </p>
+            </>
+          )}
 
           {/* Show captured photos if any */}
           {capturedPhotos.length > 0 && (
             <div className="mb-6">
               <h4 className="text-sm font-medium mb-3 text-black dark:text-white">
-                Captured Photos:
+                Captured Photos ({capturedPhotos.length}/4):
               </h4>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {capturedPhotos.map((photo, index) => (
-                  <div key={index} className="relative">
-                    <img
-                      src={photo}
-                      alt={`Captured photo ${index + 1}`}
-                      className="w-20 h-20 object-cover rounded-lg border-2 border-black dark:border-white shadow-lg"
-                    />
-                    {/* Delete button */}
-                    <button
-                      onClick={() => handleDeletePhoto(index)}
-                      className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg transition-colors duration-200 z-10"
-                      aria-label={`Delete photo ${index + 1}`}
-                    >
-                      ✕
-                    </button>
+              <div className="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                {[0, 1, 2, 3].map((index) => (
+                  <div
+                    key={index}
+                    className="aspect-square rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 flex items-center justify-center relative"
+                  >
+                    {capturedPhotos[index] ? (
+                      <>
+                        <img
+                          src={capturedPhotos[index]}
+                          alt={`Captured photo ${index + 1}`}
+                          className="w-full h-full object-cover rounded-lg border-2 border-black dark:border-white"
+                        />
+                        {/* Delete button */}
+                        <button
+                          onClick={() => handleDeletePhoto(index)}
+                          className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg transition-colors duration-200 z-10"
+                          aria-label={`Delete photo ${index + 1}`}
+                        >
+                          ✕
+                        </button>
+                      </>
+                    ) : (
+                      <div className="text-gray-400 dark:text-gray-500 text-xs text-center">
+                        Photo {index + 1}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -182,33 +201,21 @@ export function CameraCapture() {
           )}
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            {!isCameraStarted ? (
+            <Button
+              className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+              size="lg"
+              onClick={handleStartCamera}
+            >
+              {capturedPhotos.length > 0 ? "Take More Photos" : "Start Camera"}
+            </Button>
+            {capturedPhotos.length > 0 && (
               <Button
-                className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-                size="lg"
-                onClick={handleStartCamera}
+                variant="outline"
+                className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+                onClick={handleRetakePhoto}
               >
-                Start Camera
+                Clear All Photos
               </Button>
-            ) : (
-              <>
-                {capturedPhotos.length > 0 && (
-                  <Button
-                    variant="outline"
-                    className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                    onClick={handleRetakePhoto}
-                  >
-                    🔄 Retake Photos
-                  </Button>
-                )}
-                <Button
-                  variant="outline"
-                  className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                  onClick={handleClosePreview}
-                >
-                  ✖️ Close Camera
-                </Button>
-              </>
             )}
           </div>
         </div>
@@ -331,7 +338,7 @@ export function CameraCapture() {
                 className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
                 onClick={handleClosePreview}
               >
-                Cancel
+                {capturedPhotos.length > 0 ? "Done" : "Cancel"}
               </Button>
             </div>
           </div>
