@@ -105,31 +105,47 @@ export default function EnrollmentPage() {
               {["intro", "capture", "form", "preview", "complete"].map(
                 (step, index) => (
                   <div key={step} className="flex items-center">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium
-                    ${
-                      enrollmentStep === step
-                        ? "bg-black text-white dark:bg-white dark:text-black"
-                        : [
-                            "intro",
-                            "capture",
-                            "form",
-                            "preview",
-                            "complete",
-                          ].indexOf(enrollmentStep) > index
-                        ? "bg-gray-600 text-white dark:bg-gray-400 dark:text-black"
-                        : "bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
-                    }`}
-                    >
-                      {[
-                        "intro",
-                        "capture",
-                        "form",
-                        "preview",
-                        "complete",
-                      ].indexOf(enrollmentStep) > index
-                        ? "✓"
-                        : index + 1}
+                    <div className="flex flex-col items-center">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium
+                      ${
+                        enrollmentStep === step
+                          ? "bg-black text-white dark:bg-white dark:text-black"
+                          : [
+                              "intro",
+                              "capture",
+                              "form",
+                              "preview",
+                              "complete",
+                            ].indexOf(enrollmentStep) > index
+                          ? "bg-gray-600 text-white dark:bg-gray-400 dark:text-black"
+                          : "bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-400"
+                      }`}
+                      >
+                        {[
+                          "intro",
+                          "capture",
+                          "form",
+                          "preview",
+                          "complete",
+                        ].indexOf(enrollmentStep) > index
+                          ? "✓"
+                          : index + 1}
+                      </div>
+                      {/* Title appears below the current active step */}
+                      {enrollmentStep === step && (
+                        <p className="text-sm text-gray-600 dark:text-gray-400 capitalize mt-2 whitespace-nowrap">
+                          {enrollmentStep === "intro"
+                            ? "Welcome"
+                            : enrollmentStep === "capture"
+                            ? "Face Capture"
+                            : enrollmentStep === "form"
+                            ? "Personal Details"
+                            : enrollmentStep === "preview"
+                            ? "Review & Confirm"
+                            : "Completed"}
+                        </p>
+                      )}
                     </div>
                     {index < 4 && (
                       <div
@@ -149,19 +165,6 @@ export default function EnrollmentPage() {
                   </div>
                 )
               )}
-            </div>
-            <div className="text-center mt-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
-                {enrollmentStep === "intro"
-                  ? "Welcome"
-                  : enrollmentStep === "capture"
-                  ? "Face Capture"
-                  : enrollmentStep === "form"
-                  ? "Personal Details"
-                  : enrollmentStep === "preview"
-                  ? "Review & Confirm"
-                  : "Completed"}
-              </p>
             </div>
           </div>
 

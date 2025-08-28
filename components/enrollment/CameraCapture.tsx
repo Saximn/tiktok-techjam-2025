@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Image from "next/image";
 
 interface CameraCaptureProps {
   onPhotosChange?: (photos: string[]) => void;
@@ -23,7 +24,7 @@ export function CameraCapture({ onPhotosChange }: CameraCaptureProps) {
   const [capturedPhotos, setCapturedPhotos] = useState<string[]>([]);
   const [showPreview, setShowPreview] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [showCaptureSuccess, setShowCaptureSuccess] = useState(false);
+  const [, setShowCaptureSuccess] = useState(false);
 
   // Callback ref to handle video element setup
   const videoCallbackRef = (element: HTMLVideoElement | null) => {
@@ -188,10 +189,12 @@ export function CameraCapture({ onPhotosChange }: CameraCaptureProps) {
                   >
                     {capturedPhotos[index] ? (
                       <>
-                        <img
+                        <Image
                           src={capturedPhotos[index]}
                           alt={`Captured photo ${index + 1}`}
                           className="w-full h-full object-cover rounded-lg border-2 border-black dark:border-white"
+                          width={100}
+                          height={100}
                         />
                         {/* Delete button */}
                         <button
@@ -279,12 +282,6 @@ export function CameraCapture({ onPhotosChange }: CameraCaptureProps) {
                   height: "auto",
                 }}
               />
-              {/* Guide overlay */}
-              <div className="absolute inset-0 border-2 border-dashed border-white dark:border-gray-300 rounded-lg pointer-events-none opacity-50 m-4">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white dark:text-gray-300 text-sm font-medium bg-black dark:bg-gray-800 px-2 py-1 rounded">
-                  Position your face here
-                </div>
-              </div>
             </div>
 
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-4 mb-6">
@@ -305,10 +302,12 @@ export function CameraCapture({ onPhotosChange }: CameraCaptureProps) {
                   >
                     {capturedPhotos[index] ? (
                       <>
-                        <img
+                        <Image
                           src={capturedPhotos[index]}
                           alt={`Captured photo ${index + 1}`}
                           className="w-full h-full object-cover rounded-lg border-2 border-black dark:border-white"
+                          width={100}
+                          height={100}
                         />
                         {/* Delete button */}
                         <button
