@@ -173,36 +173,48 @@ export default function EnrollmentPage() {
                   Welcome to VirtualSecure
                 </CardTitle>
                 <CardDescription className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
-                  Enroll in our whitelist system to enable face recognition and
-                  privacy protection during your streams.
+                  Protect your privacy while streaming with intelligent face
+                  recognition technology. Only whitelisted individuals appear
+                  clearly in your content.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 flex-1 flex flex-col justify-center">
                 <div className="grid md:grid-cols-3 gap-4 text-left mx-auto">
-                  <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 ">
-                    <h3 className="font-semibold mb-1 text-black dark:text-white">
+                  <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 className="font-semibold mb-2 text-black dark:text-white">
                       Face Capture
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      We&apos;ll capture your face for secure identification
+                      Secure facial recognition using advanced AI to identify
+                      authorized individuals during streams.
                     </p>
                   </div>
                   <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 className="font-semibold mb-1 text-black dark:text-white">
+                    <h3 className="font-semibold mb-2 text-black dark:text-white">
                       Privacy Protection
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Non-whitelisted faces will be automatically blurred
+                      Non-whitelisted faces are automatically blurred in
+                      real-time to protect viewer privacy.
                     </p>
                   </div>
                   <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 className="font-semibold mb-1 text-black dark:text-white">
+                    <h3 className="font-semibold mb-2 text-black dark:text-white">
                       Trusted Access
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Only whitelisted individuals appear clearly
+                      Manage your whitelist to control exactly who appears
+                      clearly in your broadcasts.
                     </p>
                   </div>
+                </div>
+
+                <div className="p-4 bg-black dark:bg-white rounded-lg border border-gray-200 dark:border-gray-700 max-w-2xl mx-auto">
+                  <p className="text-sm text-white dark:text-black">
+                    <span className="font-semibold">Secure & Private:</span> All
+                    facial data is encrypted and processed locally. Your
+                    information is never shared with third parties.
+                  </p>
                 </div>
               </CardContent>
               <div className="px-6 pb-6 mt-auto">

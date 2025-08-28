@@ -15,7 +15,7 @@ interface FacePreviewProps {
 
 export function FacePreview({ faces }: FacePreviewProps) {
   return (
-    <Card className="p-4 bg-white dark:bg-black border border-black dark:border-white">
+    <Card className="p-4 bg-white dark:bg-black border border-black dark:border-white rounded-lg">
       {/* Header */}
       <div className=" border-b border-black dark:border-white">
         <h3 className="font-bold text-base text-black dark:text-white mb-1">
@@ -33,10 +33,10 @@ export function FacePreview({ faces }: FacePreviewProps) {
           {faces.map((face, index) => (
             <div
               key={face.id}
-              className="flex items-center gap-3 p-3 border border-black dark:border-white bg-white dark:bg-black hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+              className="flex items-center gap-3 p-3 border border-black dark:border-white bg-white dark:bg-black hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors rounded-lg"
             >
               {/* Index */}
-              <div className="flex-shrink-0 w-6 h-6 bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-bold">
+              <div className="flex-shrink-0 w-6 h-6 bg-black dark:bg-white text-white dark:text-black flex items-center justify-center text-xs font-bold rounded">
                 {index + 1}
               </div>
 
@@ -67,7 +67,7 @@ export function FacePreview({ faces }: FacePreviewProps) {
               {/* Status Badge */}
               <div className="flex-shrink-0">
                 <div
-                  className={`px-2 py-1 text-xs font-bold border border-black dark:border-white ${
+                  className={`px-2 py-1 text-xs font-bold border border-black dark:border-white rounded ${
                     face.whitelisted
                       ? "bg-black dark:bg-white text-white dark:text-black"
                       : "bg-white dark:bg-black text-black dark:text-white"
@@ -80,7 +80,7 @@ export function FacePreview({ faces }: FacePreviewProps) {
               {/* Status Indicator */}
               <div className="flex-shrink-0">
                 <div
-                  className={`w-3 h-3 ${
+                  className={`w-3 h-3 rounded ${
                     face.whitelisted
                       ? "bg-black dark:bg-white"
                       : "bg-white dark:bg-black border border-black dark:border-white"
@@ -93,8 +93,8 @@ export function FacePreview({ faces }: FacePreviewProps) {
       ) : (
         /* Empty State */
         <div className="text-center py-8">
-          <div className="w-12 h-12 mx-auto mb-3 bg-white dark:bg-black border border-black dark:border-white flex items-center justify-center">
-            <div className="w-6 h-6 bg-black dark:bg-white" />
+          <div className="w-12 h-12 mx-auto mb-3 bg-white dark:bg-black border border-black dark:border-white flex items-center justify-center rounded-lg">
+            <div className="w-6 h-6 bg-black dark:bg-white rounded" />
           </div>
           <p className="text-sm font-medium text-black dark:text-white mb-1">
             No Faces Detected
