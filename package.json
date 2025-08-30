@@ -36,5 +36,18 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
-  }
+  },
+  "description": "TikTok Techjam 2025",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saximn/tiktok-techjam-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saximn/tiktok-techjam-2025/issues"
+  },
+  "homepage": "https://github.com/Saximn/tiktok-techjam-2025#readme"
 }
