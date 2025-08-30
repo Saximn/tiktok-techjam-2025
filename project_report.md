@@ -2,17 +2,11 @@
 
 ## Project Overview
 
-This project implements the winning solution for The Learning Agency Lab's PII (Personally Identifiable Information) Data Detection Competition on Kaggle. The objective was to develop automated techniques to detect and remove PII from educational data, which will support learning science research and the development of educational tools.
-
-## Competition Context
-
-**Competition Name:** The Learning Agency Lab - PII Data Detection  
-**Objective:** Develop automated techniques to detect and remove PII from educational data  
-**Impact:** Lower the cost of releasing educational datasets and enable researchers to tap into large public educational datasets
+This project implements the solution for Tiktok Techjam 2025. The objective was to develop automated techniques to detect and remove PII from Tiktok videos. 
 
 ## Solution Architecture
 
-Our winning approach employs an ensemble of five diverse DeBERTa-v3-large models, each incorporating different architectural modifications to maximize performance and diversity:
+Our approach employs an ensemble of five diverse DeBERTa-v3-large models, each incorporating different architectural modifications to maximize performance and diversity:
 
 ### Model Components
 
@@ -42,20 +36,6 @@ Our winning approach employs an ensemble of five diverse DeBERTa-v3-large models
    - Improves detection of various name patterns
    - Training command: `python train_exp076.py`
 
-## Technical Infrastructure
-
-### Hardware Requirements
-- **Instance:** Ubuntu 20.04.5 LTS (128 GB boot disk)
-- **CPU:** Intel(R) Xeon(R) Silver 4216 @ 2.10GHz (7 vCPUs)
-- **GPU:** 8 x NVIDIA A100 40GB
-- **Python:** 3.10.13
-- **CUDA:** 12.1
-
-### Key Technologies
-- **Base Model:** DeBERTa-v3-large
-- **Framework:** PyTorch/Transformers
-- **Task Type:** Named Entity Recognition (NER)
-- **Ensemble Method:** Diverse architecture ensemble
 
 ## Data Processing Strategy
 
@@ -72,6 +52,8 @@ Our winning approach employs an ensemble of five diverse DeBERTa-v3-large models
 - **Token-level Augmentation:** Maintains NER structure while increasing variety
 
 ## Results and Performance
+<img width="1327" height="918" alt="image" src="https://github.com/user-attachments/assets/7ee1481f-3967-462d-9c9f-b9b0604f2289" />
+
 
 ### Final Competition Results
 - **Accuracy Score:** 0.96988
@@ -88,7 +70,7 @@ The solution utilized multiple data sources for comprehensive training:
 
 #### Enhanced Datasets (Key Contributors)
 - **TonyaRobertson Public Data:** High-quality external dataset
-- **Custom 2k Generated Dataset:** Synthetically generated data for improved diversity
+- **Custom 2k Generated Dataset:** Synthetically generated data for improved diversity (specific to real-life context Tiktok videos)
 
 ### Individual Model Performance
 
@@ -171,7 +153,7 @@ The solution successfully identifies 15 categories of personally identifiable in
 ### Performance Analysis
 
 #### Strengths
-- **High Accuracy:** 0.96988 private leaderboard score
+- **High Accuracy:** 0.96988 
 - **Model Diversity:** 7 different architectural approaches
 - **Data Utilization:** Effective use of multiple external datasets
 - **Ensemble Optimization:** Sophisticated voting mechanism
@@ -219,19 +201,11 @@ sh ./setup_datasets.sh
 ```
 
 ### Inference Process
-- Detailed inference notebook available on Kaggle
+- Detailed inference notebook
 - Processes test data through all five models
 - Applies ensemble logic for final predictions
 - Includes post-processing for optimal results
 
-## Project Structure Analysis
-
-The current implementation includes:
-- **Training Scripts:** Individual model training implementations
-- **Model Architectures:** Custom DeBERTa variants (BiLSTM, Multi-Dropout)
-- **Configuration:** Model and training parameters
-- **Setup Scripts:** Data preparation and environment setup
-- **Source Code:** Core implementation modules
 
 ## Key Innovations
 
@@ -240,20 +214,6 @@ The current implementation includes:
 3. **Knowledge Distillation:** Leverages best models to improve weaker variants
 4. **Ensemble Strategy:** Combines strengths of different approaches
 5. **NaN Prevention:** Specific initialization strategies for stable training
-
-## Business Impact
-
-### Educational Data Privacy
-- Enables automated PII removal from educational datasets
-- Reduces manual review costs and time
-- Supports large-scale learning science research
-- Facilitates development of educational tools
-
-### Technical Contributions
-- Demonstrates effectiveness of ensemble approaches for NER
-- Shows value of architectural diversity in transformer models
-- Provides robust solution for privacy-critical applications
-- Sets benchmark for PII detection in educational contexts
 
 ## Future Enhancements
 
@@ -272,7 +232,7 @@ The current implementation includes:
 
 ## Conclusion
 
-This solution demonstrates the power of ensemble learning with diverse DeBERTa architectures for PII detection in educational data. The combination of architectural variants, strategic data augmentation, and knowledge distillation creates a robust system capable of accurately identifying personal information while maintaining high performance across various text types.
+This solution demonstrates the power of ensemble learning with diverse DeBERTa architectures for PII detection in Tiktok videos. The combination of architectural variants, strategic data augmentation, and knowledge distillation creates a robust system capable of accurately identifying personal information while maintaining high performance across various text types.
 
 The solution's success validates the approach of using multiple model variations rather than relying on a single architecture, providing both improved accuracy and enhanced robustness for real-world applications in educational data privacy protection.
 

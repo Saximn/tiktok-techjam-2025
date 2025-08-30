@@ -1,6 +1,6 @@
 # TikTok Techjam 2025 - PII Data Detection Track 7 
 
-This repository contains the code and configurations for our solution in the **PII Data Detection** competition hosted by TikTok. Our team's approach and results are detailed in the project_report.md file.
+This repository contains the code and configurations for our solution in the **PII Data Detection** competition hosted by TikTok. Our team's approach and results are detailed in the **project_report.md** file.
 
 
 ## Table of Contents
@@ -16,10 +16,7 @@ This repository contains the code and configurations for our solution in the **P
 ## Setup
 
 ### Hardware
-
-- **Instance:** Ubuntu 20.04.5 LTS (128 GB boot disk)
-- **CPU:** Intel(R) Xeon(R) Silver 4216 @ 2.10GHz (7 vCPUs)
-- **GPU:** 8 x NVIDIA A100 40GB
+- **GPU:** NVIDIA A100 40GB
 
 
 ### Software
