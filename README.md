@@ -1,6 +1,6 @@
 # TikTok Techjam 2025 - PII Data Detection Track 7 
 
-This repository contains the code and configurations for our solution in the **PII Data Detection** competition hosted by TikTok. Our team's approach and results are detailed in the project_report.md file.
+This repository contains the code and configurations for our solution in the **PII Data Detection** competition hosted by TikTok. Our team's approach and results are detailed in the **project_report.md** file.
 
 
 ## Table of Contents
