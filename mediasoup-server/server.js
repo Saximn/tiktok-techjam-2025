@@ -153,8 +153,17 @@ io.on('connection', async (socket) => {
         viewerCount: room.getViewerCount()
       });
       
+      // Send existing producers to the new viewer
+      room.hostProducers.forEach((producer, kind) => {
+        console.log(`Notifying new viewer about existing ${kind} producer: ${producer.id}`);
+        socket.emit('new-producer', {
+          producerId: producer.id,
+          kind: producer.kind
+        });
+      });
+      
       callback({ success: true, roomId });
-      console.log(`Viewer ${socket.id} joined room ${roomId}`);
+      console.log(`Viewer ${socket.id} joined room ${roomId} (${room.hostProducers.size} producers available)`);
     } catch (error) {
       console.error('Error joining room:', error);
       callback({ success: false, error: error.message });

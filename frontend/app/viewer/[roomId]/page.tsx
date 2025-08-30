@@ -14,6 +14,7 @@ export default function Viewer() {
   const [error, setError] = useState('')
   const [connectionState, setConnectionState] = useState('connecting')
   const [streamAvailable, setStreamAvailable] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
 
   const videoRef = useRef<HTMLVideoElement>(null)
   const socketRef = useRef<SocketManager | null>(null)
@@ -21,53 +22,108 @@ export default function Viewer() {
   const mediasoupClientRef = useRef<MediasoupClient | null>(null)
   const remoteStreamsRef = useRef<Map<string, MediaStream>>(new Map())
   const consumersRef = useRef<Set<string>>(new Set())
+  const pendingProducersRef = useRef<Array<{producerId: string, kind: string}>>([])
+
+  const handleUnmute = async () => {
+    if (videoRef.current) {
+      try {
+        videoRef.current.muted = false
+        setIsMuted(false)
+        console.log('Video unmuted by user')
+      } catch (error) {
+        console.error('Failed to unmute video:', error)
+      }
+    }
+  };
 
   useEffect(() => {
     const initializeViewer = async () => {
       try {
         setError('')
         setConnectionState('connecting')
-        console.log('Initializing viewer for room:', roomId)
+        console.log('🔵 [VIEWER] === STEP 1: Initializing viewer for room:', roomId)
 
         // Initialize main signaling socket (Flask backend)
+        console.log('🔵 [VIEWER] === STEP 2: Connecting to Flask backend')
         socketRef.current = new SocketManager()
         await socketRef.current.connect()
+        console.log('🔵 [VIEWER] === STEP 2 SUCCESS: Connected to Flask backend')
         
         // Join room
+        console.log('🔵 [VIEWER] === STEP 3: Joining Flask backend room:', roomId)
         const response = await socketRef.current.joinRoom(roomId)
+        console.log('🔵 [VIEWER] === STEP 3 SUCCESS: Joined Flask backend room successfully. Response:', response)
         
         // Initialize SFU connection (Mediasoup server)
         const sfuUrl = response.mediasoupUrl || 'http://localhost:3001'
+        console.log('🔵 [VIEWER] === STEP 4: Connecting to SFU server:', sfuUrl)
         sfuSocketRef.current = io(sfuUrl)
         
         await new Promise((resolve) => {
-          sfuSocketRef.current!.on('connect', resolve)
+          sfuSocketRef.current!.on('connect', () => {
+            console.log('🔵 [VIEWER] === STEP 4 SUCCESS: Connected to SFU server')
+            resolve(undefined)
+          })
         })
 
-        // Initialize Mediasoup client
+        // Initialize Mediasoup client FIRST (needed for event handlers)
+        console.log('🔵 [VIEWER] === STEP 5: Initializing Mediasoup client')
         mediasoupClientRef.current = new MediasoupClient(roomId)
         await mediasoupClientRef.current.initialize(sfuSocketRef.current!)
+        console.log('🔵 [VIEWER] === STEP 5 SUCCESS: Mediasoup client initialized')
         
-        // Join room in SFU server
-        await new Promise((resolve, reject) => {
+        // Set up SFU event handlers BEFORE joining to catch producer notifications
+        console.log('🔵 [VIEWER] === STEP 6: Setting up SFU event handlers')
+        setupSFUEventHandlers()
+        console.log('🔵 [VIEWER] === STEP 6 SUCCESS: SFU event handlers set up')
+
+        // Join room in SFU server (will trigger immediate producer notifications)
+        console.log('🔵 [VIEWER] === STEP 7: Joining SFU room:', roomId)
+        const sfuJoinResponse = await new Promise((resolve, reject) => {
           sfuSocketRef.current!.emit('join-room', { roomId }, (response: any) => {
+            console.log('🔵 [VIEWER] === STEP 7 RESPONSE: SFU join-room response:', JSON.stringify(response, null, 2))
             if (response.success) {
               resolve(response)
             } else {
+              console.error('🔵 [VIEWER] === STEP 7 ERROR: SFU join failed:', response.error)
               reject(new Error(response.error))
             }
           })
         })
+        console.log('🔵 [VIEWER] === STEP 7 SUCCESS: Joined SFU room - producer notifications should be received')
 
-        // Create consumer transport
-        await mediasoupClientRef.current.createConsumerTransport()
+        // Create consumer transport (now authorized)
+        console.log('🔵 [VIEWER] === STEP 8: Creating consumer transport')
+        try {
+          await mediasoupClientRef.current.createConsumerTransport()
+          console.log('🔵 [VIEWER] === STEP 8 SUCCESS: Consumer transport created')
+        } catch (transportError) {
+          console.error('🔵 [VIEWER] === STEP 8 ERROR: Failed to create consumer transport:', transportError)
+          throw transportError
+        }
 
-        console.log('Viewer initialized successfully')
+        // Process any pending producers that were queued during join
+        console.log('🔵 [VIEWER] === STEP 9: Processing pending producers:', pendingProducersRef.current.length)
+        const hadPendingProducers = pendingProducersRef.current.length > 0
+        for (const producer of pendingProducersRef.current) {
+          console.log(`🔵 [VIEWER] Processing queued producer: ${producer.producerId} (${producer.kind})`)
+          await processProducer(producer.producerId, producer.kind)
+        }
+        pendingProducersRef.current = [] // Clear the queue
+        
+        // If we processed any producers or have streams, streaming is available
+        if (hadPendingProducers || remoteStreamsRef.current.size > 0) {
+          console.log('🔵 [VIEWER] === STEP 10: Setting streamAvailable to true (producers processed)')
+          setStreamAvailable(true)
+        }
+
+        console.log('🔵 [VIEWER] Viewer initialized successfully')
         setIsConnected(true)
         setConnectionState('connected')
 
-        // Set up event handlers
-        setupEventHandlers()
+        // Set up main signaling event handlers AFTER successful connection
+        console.log('🔵 [VIEWER] Setting up main signaling event handlers')
+        setupMainEventHandlers()
 
       } catch (err) {
         setError(`Failed to join room: ${err instanceof Error ? err.message : 'Unknown error'}`)
@@ -76,17 +132,17 @@ export default function Viewer() {
       }
     }
 
-    const setupEventHandlers = () => {
-      if (!socketRef.current || !sfuSocketRef.current || !mediasoupClientRef.current) return
+    const setupMainEventHandlers = () => {
+      if (!socketRef.current) return
 
       // Main signaling socket handlers
       socketRef.current.onStreamingStarted(() => {
-        console.log('Host started streaming')
+        console.log('🔴 [VIEWER] Host started streaming - setStreamAvailable(true)')
         setStreamAvailable(true)
       })
 
       socketRef.current.onStreamingStopped(() => {
-        console.log('Host stopped streaming')
+        console.log('🔴 [VIEWER] Host stopped streaming - setStreamAvailable(false)')
         setStreamAvailable(false)
         // Clean up streams
         remoteStreamsRef.current.clear()
@@ -100,19 +156,25 @@ export default function Viewer() {
         setStreamAvailable(false)
         setConnectionState('disconnected')
       })
+    };
 
-      // SFU socket handlers
-      sfuSocketRef.current!.on('new-producer', async (data) => {
-        const { producerId, kind } = data
-        console.log(`New producer available: ${producerId} (${kind})`)
-        
+    const processProducer = async (producerId: string, kind: string) => {
+      try {
+        // Check if we already have this consumer
+        if (consumersRef.current.has(producerId)) {
+          console.log(`🟡 [VIEWER] Already consuming ${producerId}`)
+          return
+        }
+
+        // Check if consumer transport is ready
+        if (!mediasoupClientRef.current?.hasConsumerTransport()) {
+          console.log(`🟡 [VIEWER] Consumer transport not ready, queueing producer: ${producerId} (${kind})`)
+          pendingProducersRef.current.push({ producerId, kind })
+          return
+        }
+
+        console.log(`🟢 [VIEWER] Starting to consume ${kind} producer: ${producerId}`)
         try {
-          // Check if we already have this consumer
-          if (consumersRef.current.has(producerId)) {
-            console.log(`Already consuming ${producerId}`)
-            return
-          }
-
           const stream = await mediasoupClientRef.current!.consume(producerId, kind)
           if (stream) {
             consumersRef.current.add(producerId)
@@ -149,9 +211,27 @@ export default function Viewer() {
               console.log('Audio stream processed')
             }
           }
-        } catch (err) {
-          console.error(`Failed to consume ${kind} producer ${producerId}:`, err)
+        } catch (consumeError) {
+          console.error(`Failed to consume ${kind} producer ${producerId}:`, consumeError)
+          // If consume fails because transport not ready, queue it for later
+          if (consumeError.message.includes('transport') || consumeError.message.includes('device not ready')) {
+            console.log(`🟡 [VIEWER] Queueing producer due to transport error: ${producerId} (${kind})`)
+            pendingProducersRef.current.push({ producerId, kind })
+          }
         }
+      } catch (err) {
+        console.error(`Failed to consume ${kind} producer ${producerId}:`, err)
+      }
+    };
+
+    const setupSFUEventHandlers = () => {
+      if (!sfuSocketRef.current || !mediasoupClientRef.current) return
+
+      // SFU socket handlers
+      sfuSocketRef.current!.on('new-producer', async (data) => {
+        const { producerId, kind } = data
+        console.log(`🟢 [VIEWER] New producer available: ${producerId} (${kind})`)
+        await processProducer(producerId, kind)
       })
 
       sfuSocketRef.current!.on('producer-closed', (data) => {
@@ -173,7 +253,7 @@ export default function Viewer() {
         setStreamAvailable(false)
         setConnectionState('disconnected')
       })
-    }
+    };
 
     if (roomId) {
       initializeViewer()
@@ -259,17 +339,50 @@ export default function Viewer() {
           <video
             ref={videoRef}
             autoPlay
+            muted
             playsInline
             controls
             className="w-full h-auto object-contain"
             style={{ backgroundColor: '#000', minHeight: '400px' }}
-            onLoadedData={() => {
+            onLoadedData={async () => {
               console.log('Video loaded and ready to play')
+              // Always start muted and playing
+              if (videoRef.current) {
+                try {
+                  videoRef.current.muted = true
+                  await videoRef.current.play()
+                  console.log('Video autoplay successful (muted)')
+                } catch (error) {
+                  console.log('Autoplay failed:', error)
+                }
+              }
             }}
             onError={(e) => {
               console.error('Video error:', e)
             }}
           />
+          
+          {isMuted && streamAvailable && (
+            <div 
+              className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-75 cursor-pointer z-10"
+              onClick={handleUnmute}
+            >
+              <div className="text-center bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-600">
+                <div className="text-6xl mb-4">🔊</div>
+                <div className="text-xl font-semibold mb-2">Click to Unmute</div>
+                <div className="text-sm opacity-75">Stream starts muted - click to enable audio</div>
+              </div>
+            </div>
+          )}
+          
+          {/* Debug info - remove after testing */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs p-2 rounded">
+              <div>isMuted: {isMuted.toString()}</div>
+              <div>streamAvailable: {streamAvailable.toString()}</div>
+              <div>connectionState: {connectionState}</div>
+            </div>
+          )}
           
           {!streamAvailable && connectionState === 'connected' && (
             <div className="absolute inset-0 flex items-center justify-center text-gray-400">

@@ -92,9 +92,17 @@ export class MediasoupClient {
       throw new Error('Device not initialized');
     }
 
-    const transportOptions = await this.request('create-consumer-transport', {
-      roomId: this.roomId
-    });
+    console.log('🟢 [MEDIASOUP-CLIENT] Requesting consumer transport creation for room:', this.roomId);
+    let transportOptions;
+    try {
+      transportOptions = await this.request('create-consumer-transport', {
+        roomId: this.roomId
+      });
+      console.log('🟢 [MEDIASOUP-CLIENT] Consumer transport options received:', JSON.stringify(transportOptions, null, 2));
+    } catch (requestError) {
+      console.error('🟢 [MEDIASOUP-CLIENT] Failed to request consumer transport:', requestError);
+      throw requestError;
+    }
 
     this.consumerTransport = this.device.createRecvTransport(transportOptions);
 
@@ -117,6 +125,10 @@ export class MediasoupClient {
         console.log('Consumer transport closed');
       }
     });
+  }
+
+  hasConsumerTransport(): boolean {
+    return !!this.consumerTransport;
   }
 
   async produce(stream: MediaStream): Promise<void> {
@@ -148,8 +160,20 @@ export class MediasoupClient {
 
   async consume(producerId: string, kind: 'audio' | 'video'): Promise<MediaStream | null> {
     if (!this.consumerTransport || !this.device) {
+      console.error('🔴 [MEDIASOUP-CLIENT] consume() failed - missing transport or device:', {
+        hasTransport: !!this.consumerTransport,
+        hasDevice: !!this.device,
+        transportState: this.consumerTransport?.connectionState
+      });
       throw new Error('Consumer transport or device not ready');
     }
+
+    console.log('🟢 [MEDIASOUP-CLIENT] consume() attempting to consume:', {
+      producerId,
+      kind,
+      transportState: this.consumerTransport.connectionState,
+      deviceReady: this.device.loaded
+    });
 
     try {
       const response = await this.request('consume', {

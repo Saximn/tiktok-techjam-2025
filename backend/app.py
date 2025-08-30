@@ -84,7 +84,9 @@ def handle_join_room(data):
     # If streaming is already active, notify the new viewer
     if rooms[room_id].get('sfu_ready', False):
         emit('streaming_started', {'roomId': room_id})
-        print(f'Notified new viewer about active streaming in room {room_id}')
+        print(f'[BACKEND] Notified new viewer about active streaming in room {room_id}')
+    else:
+        print(f'[BACKEND] Room {room_id} streaming not active (sfu_ready: {rooms[room_id].get("sfu_ready", False)})')
     
     socketio.emit('viewer_joined', {'userId': users[request.sid]['id'], 'viewerCount': len(rooms[room_id]['viewers'])}, room=room_id)
     print(f'User joined room {room_id} with SFU support')
