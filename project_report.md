@@ -64,7 +64,6 @@ Our approach employs an ensemble of five diverse DeBERTa-v3-large models, each i
 The solution utilized multiple data sources for comprehensive training:
 
 #### Primary Datasets
-- **Competition Data:** Official competition dataset
 - **MPWARE Public Data:** External augmentation dataset
 - **Nicholas Broad Public Data:** Community-contributed dataset
 
