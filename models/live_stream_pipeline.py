@@ -368,7 +368,7 @@ class UnifiedVideoAnalyzer:
     
     def get_blur_regions_for_frame(self, frame_id: int) -> Dict[str, Any]:
         """Get blur regions for a given frame, considering hold frames."""
-        blur_regions = {"rectangles": [], "polygons": []}
+        blur_regions = {"rectangles": []}
         
         # Check all cached detections for active blur regions
         for cached_frame_id, (results, remaining_frames) in list(self.detection_cache.items()):
@@ -384,9 +384,9 @@ class UnifiedVideoAnalyzer:
                 if "plate" in models and "rectangles" in models["plate"]:
                     blur_regions["rectangles"].extend(models["plate"]["rectangles"])
                 
-                # PII polygons
-                if "pii" in models and "polygons" in models["pii"]:
-                    blur_regions["polygons"].extend(models["pii"]["polygons"])
+                # PII rectangles
+                if "pii" in models and "rectangles" in models["pii"]:
+                    blur_regions["rectangles"].extend(models["pii"]["rectangles"])
                 
                 # Decrease remaining frames
                 self.detection_cache[cached_frame_id] = (results, remaining_frames - 1)
@@ -454,7 +454,6 @@ class BlurProcessor:
                 blurred_frame = apply_blur_regions(
                     frame_data.image.copy(),
                     rectangles=blur_regions.get("rectangles"),
-                    polygons=blur_regions.get("polygons"),
                     blur_type=self.config.blur_type,
                     kernel_size=self.config.blur_kernel_size,
                     pixel_size=self.config.blur_pixel_size
@@ -485,10 +484,6 @@ class BlurProcessor:
                 if len(rect) == 4:
                     x1, y1, x2, y2 = rect
                     cv2.rectangle(display_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            
-            for poly in blur_regions.get("polygons", []):
-                if len(poly) > 0:
-                    cv2.polylines(display_frame, [poly], True, (255, 0, 0), 2)
             
             # Add frame info
             info_text = f"Frame: {frame_data.frame_id}"

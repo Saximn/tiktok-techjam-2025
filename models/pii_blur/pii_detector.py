@@ -1,6 +1,6 @@
 """
 PII (Personally Identifiable Information) detection model for extracting blur regions.
-Processes a single frame and returns polygons/rectangles to be blurred.
+Processes a single frame and returns rectangles to be blurred.
 """
 import os
 import sys
@@ -160,14 +160,14 @@ class PIIDecider:
 
 
 class Hysteresis:
-    """Temporal stabilization for polygon tracking."""
+    """Temporal stabilization for rectangle tracking."""
     
     def __init__(self, iou_thresh: float = 0.3, K_confirm: int = 2, K_hold: int = 8):
         """
         Initialize hysteresis tracker.
         
         Args:
-            iou_thresh: IoU threshold for polygon matching
+            iou_thresh: IoU threshold for rectangle matching
             K_confirm: Frames to confirm before activating
             K_hold: Frames to hold after last detection
         """
@@ -189,38 +189,33 @@ class Hysteresis:
         area_b = (b[2] - b[0]) * (b[3] - b[1])
         return inter / (area_a + area_b - inter + 1e-6)
 
-    def aabb(self, poly: np.ndarray) -> List[int]:
-        """Get axis-aligned bounding box from polygon."""
-        xs, ys = poly[:, 0], poly[:, 1]
-        return [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
-
-    def update(self, polys: List[np.ndarray]) -> List[Tuple[np.ndarray, bool]]:
+    def update(self, rects: List[List[int]]) -> List[Tuple[List[int], bool]]:
         """
-        Update tracker with new polygons.
+        Update tracker with new rectangles.
         
         Args:
-            polys: List of detected polygons
+            rects: List of detected rectangles as [x1, y1, x2, y2]
             
         Returns:
-            List of (polygon, is_active) tuples
+            List of (rectangle, is_active) tuples
         """
         self.frame += 1
-        used = [False] * len(polys)
+        used = [False] * len(rects)
         
         # Match to existing tracks
         for tid, t in list(self.tracks.items()):
-            ta = self.aabb(t["poly"])
+            tr = t["rect"]
             best, bj = 0.0, -1
             
-            for j, p in enumerate(polys):
+            for j, r in enumerate(rects):
                 if used[j]:
                     continue
-                ov = self.iou(ta, self.aabb(p))
+                ov = self.iou(tr, r)
                 if ov > best:
                     best, bj = ov, j
                     
             if best >= self.iou_thresh and bj >= 0:
-                t["poly"] = polys[bj]
+                t["rect"] = rects[bj]
                 t["hits"] += 1
                 t["last"] = self.frame
                 if not t["active"] and t["hits"] >= self.K_confirm:
@@ -231,10 +226,10 @@ class Hysteresis:
                 t["active"] = False
 
         # Create new tracks
-        for j, p in enumerate(polys):
+        for j, r in enumerate(rects):
             if not used[j]:
                 self.tracks[self.next_id] = {
-                    "poly": p,
+                    "rect": r,
                     "hits": 1,
                     "active": (1 >= self.K_confirm),
                     "last": self.frame
@@ -247,13 +242,13 @@ class Hysteresis:
         for tid in drop:
             self.tracks.pop(tid, None)
 
-        return [(t["poly"], t["active"]) for t in self.tracks.values()]
+        return [(t["rect"], t["active"]) for t in self.tracks.values()]
 
 
 class PIIDetector:
     """
     PII detection model that identifies text regions containing personally identifiable information.
-    Returns polygons that should be blurred instead of performing blur directly.
+    Returns rectangles that should be blurred instead of performing blur directly.
     """
     
     def __init__(self,
@@ -270,7 +265,7 @@ class PIIDetector:
         Args:
             classifier_path: Path to ML classifier joblib file
             conf_thresh: OCR confidence threshold
-            min_area: Minimum polygon area to consider
+            min_area: Minimum rectangle area to consider
             K_confirm: Frames to confirm before blurring
             K_hold: Frames to hold blur after last detection
             det_arch: OCR detection architecture
@@ -290,32 +285,32 @@ class PIIDetector:
         
         print("[PIIDetector] Initialized")
     
-    def poly_from_box_norm(self, box: Tuple[Tuple[float, float], Tuple[float, float]], 
-                          W: int, H: int) -> np.ndarray:
-        """Convert normalized box to polygon coordinates."""
+    def rect_from_box_norm(self, box: Tuple[Tuple[float, float], Tuple[float, float]], 
+                          W: int, H: int) -> List[int]:
+        """Convert normalized box to rectangle coordinates."""
         (x0, y0), (x1, y1) = box
         x0, x1 = int(x0 * W), int(x1 * W)
         y0, y1 = int(y0 * H), int(y1 * H)
-        return np.array([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], dtype=np.int32)
+        return [x0, y0, x1, y1]
     
-    def collect_pii_polys(self, frame_bgr: np.ndarray, blur_all: bool = False) -> List[np.ndarray]:
+    def collect_pii_rects(self, frame_bgr: np.ndarray, blur_all: bool = False) -> List[List[int]]:
         """
-        Collect PII polygons from a frame.
+        Collect PII rectangles from a frame.
         
         Args:
             frame_bgr: Input frame
             blur_all: If True, blur all detected text regardless of PII classification
             
         Returns:
-            List of polygons to blur
+            List of rectangles to blur as [x1, y1, x2, y2]
         """
         H, W = frame_bgr.shape[:2]
         data = self.ocr.infer(frame_bgr)
         pages = data.get("pages", [])
-        polys = []
+        rects = []
         
         if not pages:
-            return polys
+            return rects
             
         for blk in pages[0].get("blocks", []):
             for line in blk.get("lines", []):
@@ -327,20 +322,22 @@ class PIIDetector:
                     if not geom:
                         continue
                         
-                    poly = self.poly_from_box_norm(geom, W, H)
+                    rect = self.rect_from_box_norm(geom, W, H)
                     
-                    if cv2.contourArea(poly) < self.min_area:
+                    # Calculate rectangle area
+                    area = (rect[2] - rect[0]) * (rect[3] - rect[1])
+                    if area < self.min_area:
                         continue
                         
                     if blur_all or self.decider.decide(text, conf, self.conf_thresh):
-                        polys.append(poly)
+                        rects.append(rect)
         
-        return polys
+        return rects
     
     def process_frame(self, frame: np.ndarray, frame_id: int, 
-                     blur_all: bool = False) -> Tuple[int, List[np.ndarray]]:
+                     blur_all: bool = False) -> Tuple[int, List[List[int]]]:
         """
-        Process a single frame and return polygons to be blurred.
+        Process a single frame and return rectangles to be blurred.
         
         Args:
             frame: Input frame (BGR format)
@@ -348,18 +345,18 @@ class PIIDetector:
             blur_all: If True, blur all detected text
             
         Returns:
-            Tuple of (frame_id, list of polygons as numpy arrays)
+            Tuple of (frame_id, list of rectangles as [x1, y1, x2, y2])
         """
-        # Collect PII polygons
-        polys = self.collect_pii_polys(frame, blur_all=blur_all)
+        # Collect PII rectangles
+        rects = self.collect_pii_rects(frame, blur_all=blur_all)
         
         # Apply temporal stabilization
-        tracks = self.stabilizer.update(polys)
+        tracks = self.stabilizer.update(rects)
         
-        # Return only active polygons
-        active_polys = [poly for poly, is_active in tracks if is_active]
+        # Return only active rectangles
+        active_rects = [rect for rect, is_active in tracks if is_active]
         
-        return frame_id, active_polys
+        return frame_id, active_rects
     
     def get_model_info(self) -> Dict[str, Any]:
         """Get information about the current model configuration."""

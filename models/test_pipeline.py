@@ -132,11 +132,6 @@ def test_blur_utils():
         
         print(f"  Rectangle blur applied: {'✓' if difference > 1.0 else '✗'} (diff: {difference:.2f})")
         
-        # Test polygon blur
-        polygon = np.array([[300, 300], [400, 300], [400, 400], [300, 400]], dtype=np.int32)
-        polygons = [polygon]
-        blurred_poly = apply_blur_regions(test_image.copy(), polygons=polygons)
-        
         print("  Blur utilities test completed ✓\n")
         
     except Exception as e:

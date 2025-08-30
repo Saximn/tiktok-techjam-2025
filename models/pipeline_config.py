@@ -88,7 +88,6 @@ BLUR_HOLD_FRAMES = 8        # Number of frames to keep blur after detection stop
 
 # Blur padding
 RECT_BLUR_PADDING = 0       # Extra padding for rectangular regions
-POLY_BLUR_PADDING = 3       # Extra padding for polygon regions
 
 # ============================================================================
 # Output Configuration

@@ -6,3 +6,4 @@ datasets
 *.jpeg
 *.pt
 *.pyc
+node_modules/**

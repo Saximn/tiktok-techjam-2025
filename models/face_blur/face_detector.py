@@ -1,6 +1,6 @@
 """
 Face detection model for extracting blur regions.
-Processes a single frame and returns polygons/rectangles to be blurred.
+Processes a single frame and returns rectangles to be blurred.
 """
 import json
 import time
@@ -15,7 +15,7 @@ from insightface.app import FaceAnalysis
 class FaceDetector:
     """
     Face detection model that identifies faces to be blurred while whitelisting enrolled faces.
-    Returns rectangles/polygons that should be blurred instead of performing blur directly.
+    Returns rectangles that should be blurred instead of performing blur directly.
     """
     
     def __init__(self, 
