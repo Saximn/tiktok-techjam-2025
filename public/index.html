@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceShield - Real-Time AI Voice Privacy Protection</title>
+    <meta name="description" content="VoiceShield - Revolutionary real-time voice privacy protection for TikTok Live and beyond. Built for TikTok TechJam 2025.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="VoiceShield - AI Voice Privacy Protection">
+    <meta property="og:description" content="Real-time voice anonymization for content creators and streamers">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Prevent FOUC -->
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        #loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #6366f1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #loading h1 {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        
+        #loading p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading">
+        <div class="spinner"></div>
+        <h1>🛡️ VoiceShield</h1>
+        <p>Loading AI Voice Privacy Protection...</p>
+        <small>Built for TikTok TechJam 2025</small>
+    </div>
+    
+    <!-- React app root -->
+    <div id="root"></div>
+    
+    <!-- Module script -->
+    <script type="module" src="/src/index.jsx"></script>
+    
+    <!-- Hide loading screen once React app mounts -->
+    <script>
+        // Hide loading screen after a short delay or when React mounts
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            if (loading && document.getElementById('root').children.length > 0) {
+                loading.style.display = 'none';
+            }
+        }, 2000);
+        
+        // Also listen for React app mounting
+        const observer = new MutationObserver(() => {
+            if (document.getElementById('root').children.length > 0) {
+                const loading = document.getElementById('loading');
+                if (loading) {
+                    loading.style.opacity = '0';
+                    setTimeout(() => loading.style.display = 'none', 500);
+                }
+                observer.disconnect();
+            }
+        });
+        
+        observer.observe(document.getElementById('root'), {
+            childList: true,
+            subtree: true
+        });
+    </script>
+</body>
+</html>

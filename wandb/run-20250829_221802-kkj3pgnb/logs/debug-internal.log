@@ -1,0 +1,15 @@
+{"time":"2025-08-29T22:18:03.6297543+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"C:\\tiktok-techjam-2025\\wandb\\run-20250829_221802-kkj3pgnb\\logs\\debug-core.log"}
+{"time":"2025-08-29T22:18:05.2381184+08:00","level":"INFO","msg":"created new stream","id":"kkj3pgnb"}
+{"time":"2025-08-29T22:18:05.2386678+08:00","level":"INFO","msg":"stream: started","id":"kkj3pgnb"}
+{"time":"2025-08-29T22:18:05.2386678+08:00","level":"INFO","msg":"handler: started","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:18:05.2392135+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:18:05.2392135+08:00","level":"INFO","msg":"sender: started","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:18:05.7809754+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-08-29T22:47:00.6401848+08:00","level":"INFO","msg":"stream: closing","id":"kkj3pgnb"}
+{"time":"2025-08-29T22:47:00.6407391+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-08-29T22:47:00.6504429+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-08-29T22:47:02.6492854+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-29T22:47:03.3347566+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:47:03.3341483+08:00","level":"INFO","msg":"handler: closed","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:47:03.3347566+08:00","level":"INFO","msg":"sender: closed","stream_id":"kkj3pgnb"}
+{"time":"2025-08-29T22:47:03.3353544+08:00","level":"INFO","msg":"stream: closed","id":"kkj3pgnb"}

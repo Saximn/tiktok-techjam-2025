@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-08-28T19:56:00.752870",
+  "device": "cpu",
+  "results": {
+    "emotion_recognition": {
+      "accuracy": 0.13541666666666666,
+      "f1_score": 0.03230122324159021,
+      "precision": 0.018337673611111112,
+      "recall": 0.13541666666666666,
+      "best_accuracy": 0.13541666666666666,
+      "num_classes": 8,
+      "classes": [
+        "angry",
+        "calm",
+        "disgust",
+        "fearful",
+        "happy",
+        "neutral",
+        "sad",
+        "surprised"
+      ],
+      "model_path": "fine_tuned_models_production\\emotion_recognition_model.pth"
+    },
+    "speaker_recognition": {
+      "accuracy": 0.041666666666666664,
+      "f1_score": 0.003333333333333333,
+      "num_speakers": 24,
+      "model_path": "fine_tuned_models_production\\speaker_recognition_model.pth"
+    },
+    "pii_detection": {
+      "accuracy": 0.8666666666666667,
+      "f1_score": 0.8444444444444446,
+      "num_classes": 3,
+      "model_path": "fine_tuned_models_production\\pii_detection_model.pth"
+    }
+  },
+  "summary": {
+    "total_models": 3,
+    "avg_accuracy": 0.34791666666666665,
+    "production_ready": true
+  }
+}

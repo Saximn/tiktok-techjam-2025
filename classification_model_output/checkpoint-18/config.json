@@ -1,0 +1,41 @@
+{
+  "_name_or_path": "distilbert-base-uncased",
+  "activation": "gelu",
+  "architectures": [
+    "DistilBertForSequenceClassification"
+  ],
+  "attention_dropout": 0.1,
+  "dim": 768,
+  "dropout": 0.1,
+  "hidden_dim": 3072,
+  "id2label": {
+    "0": "financial_info",
+    "1": "health_info",
+    "2": "highly_sensitive",
+    "3": "not_private",
+    "4": "personal_info",
+    "5": "sensitive_personal"
+  },
+  "initializer_range": 0.02,
+  "label2id": {
+    "financial_info": 0,
+    "health_info": 1,
+    "highly_sensitive": 2,
+    "not_private": 3,
+    "personal_info": 4,
+    "sensitive_personal": 5
+  },
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "pad_token_id": 0,
+  "problem_type": "single_label_classification",
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.48.0",
+  "vocab_size": 30522
+}

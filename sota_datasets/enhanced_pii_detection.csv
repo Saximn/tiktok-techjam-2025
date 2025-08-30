@@ -1,0 +1,601 @@
+text,labels,privacy_level,has_pii,pii_type,variation_id
+"Please note: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,4
+The system is running smoothly,[],low,0,none,11
+It seems like looking forward to the results,[],low,0,none,1
+Personal information: Contact: 5551234567,['PHONE'],medium,1,PHONE,3
+"ADDRESS: 456 OAK AVENUE, LOS ANGELES, CA 90210",['ADDRESS'],medium,1,ADDRESS,2
+"Just to clarify, my card number is 5555 4444 3333 2222",['CREDIT_CARD'],high,1,CREDIT_CARD,11
+"During the meeting, my number is 555.123.4567",['PHONE'],medium,1,PHONE,10
+I think let's schedule a team meeting,[],low,0,none,6
+my medical record number is mr987654,['MEDICAL'],high,1,MEDICAL,1
+The deadline is next Friday,[],low,0,none,6
+Private: This is Dr. Michael Johnson,['PERSON'],low,1,PERSON,8
+Confidential: License plate: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,7
+Private: Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,8
+"Obviously, the presentation was excellent",[],low,0,none,1
+Just wanted to say great job on the analysis,[],low,0,none,6
+For your records: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,9
+Quick reminder that my birthday is 12/31/1995,['DOB'],medium,1,DOB,14
+"As mentioned earlier, account: 1234567890",['ACCOUNT'],high,1,ACCOUNT,12
+Please note: My name is John Smith,['PERSON'],low,1,PERSON,4
+ss# 555-44-3333,['SSN'],high,1,SSN,1
+"During the meeting, address: 456 oak avenue, los angeles, ca 90210",['ADDRESS'],medium,1,ADDRESS,10
+I think good morning team,[],low,0,none,10
+"Clearly, the weather is sunny today",[],low,0,none,14
+"By the way, the quarterly report looks good",[],low,0,none,11
+I think let's schedule a team meeting,[],low,0,none,11
+I think the deadline is next friday,[],low,0,none,2
+"Just to clarify, born on 01/15/1990",['DOB'],medium,1,DOB,11
+"For reference, driver's license: dl123456789",['LICENSE'],medium,1,LICENSE,13
+"Obviously, let's schedule a team meeting",[],low,0,none,4
+It seems like looking forward to the results,[],low,0,none,11
+"By the way, great job on the analysis",[],low,0,none,8
+"Just to clarify, address: 456 oak avenue, los angeles, ca 90210",['ADDRESS'],medium,1,ADDRESS,11
+For your records: Social Security: 987-65-4321,['SSN'],high,1,SSN,9
+CREDIT CARD: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,2
+MY SSN IS 123-45-6789,['SSN'],high,1,SSN,2
+I think the presentation was excellent,[],low,0,none,8
+"For reference, i'm jane doe",['PERSON'],low,1,PERSON,13
+"Obviously, the quarterly report looks good",[],low,0,none,4
+It seems like have a wonderful evening,[],low,0,none,8
+"Important: My home is 789 Pine Road, Unit 4B, Chicago IL 60601",['ADDRESS'],medium,1,ADDRESS,6
+"By the way, looking forward to the results",[],low,0,none,8
+Please note: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,4
+"Obviously, i appreciate your hard work",[],low,0,none,0
+"By the way, let's schedule a team meeting",[],low,0,none,9
+"During the meeting, call me at (555) 123-4567",['PHONE'],medium,1,PHONE,10
+Please note: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,4
+"By the way, this project is going well",[],low,0,none,11
+"DOB: MARCH 25, 1985",['DOB'],medium,1,DOB,2
+Please note: License plate: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,4
+I think the quarterly report looks good,[],low,0,none,1
+Remember: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,5
+Private: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,8
+social security: 987-65-4321,['SSN'],high,1,SSN,1
+It seems like how has your day been?,[],low,0,none,13
+"Clearly, please review the documentation",[],low,0,none,4
+"Obviously, how has your day been?",[],low,0,none,7
+Confidential: Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,7
+"dob: march 25, 1985",['DOB'],medium,1,DOB,1
+my card number is 5555 4444 3333 2222,['CREDIT_CARD'],high,1,CREDIT_CARD,1
+CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,2
+Quick reminder that this is dr. michael johnson,['PERSON'],low,1,PERSON,14
+"During the meeting, my card number is 5555 4444 3333 2222",['CREDIT_CARD'],high,1,CREDIT_CARD,10
+It seems like the deadline is next friday,[],low,0,none,13
+It seems like let's schedule a team meeting,[],low,0,none,2
+"Obviously, this solution works perfectly",[],low,0,none,11
+Please note: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,4
+"Obviously, let's schedule a team meeting",[],low,0,none,7
+I think how has your day been?,[],low,0,none,9
+Important: My medical record number is MR987654,['MEDICAL'],high,1,MEDICAL,6
+"By the way, i appreciate your hard work",[],low,0,none,4
+I think the deadline is next friday,[],low,0,none,8
+"As mentioned earlier, my email: user123@gmail.com",['EMAIL'],medium,1,EMAIL,12
+"Clearly, looking forward to the results",[],low,0,none,2
+Good morning team,[],low,0,none,9
+"Clearly, the meeting went very well",[],low,0,none,13
+How has your day been?,[],low,0,none,4
+I think please review the documentation,[],low,0,none,8
+"Remember: My home is 789 Pine Road, Unit 4B, Chicago IL 60601",['ADDRESS'],medium,1,ADDRESS,5
+This project is going well,[],low,0,none,4
+"Clearly, looking forward to the results",[],low,0,none,3
+Important: Call me at (555) 123-4567,['PHONE'],medium,1,PHONE,6
+It seems like this project is going well,[],low,0,none,8
+The meeting went very well,[],low,0,none,0
+"Obviously, let's schedule a team meeting",[],low,0,none,14
+THIS IS DR. MICHAEL JOHNSON,['PERSON'],low,1,PERSON,2
+Confidential: I'm Jane Doe,['PERSON'],low,1,PERSON,7
+LICENSE PLATE: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,2
+Remember: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,5
+Just wanted to say see you next week,[],low,0,none,3
+"MY HOME IS 789 PINE ROAD, UNIT 4B, CHICAGO IL 60601",['ADDRESS'],medium,1,ADDRESS,2
+Private: SS# 555-44-3333,['SSN'],high,1,SSN,8
+Just wanted to say great job on the analysis,[],low,0,none,10
+"Just to clarify, my account number is 9876543210",['ACCOUNT'],high,1,ACCOUNT,11
+I think the system is running smoothly,[],low,0,none,8
+"During the meeting, email me at john.doe@company.com",['EMAIL'],medium,1,EMAIL,10
+"Remember: Address: 456 Oak Avenue, Los Angeles, CA 90210",['ADDRESS'],medium,1,ADDRESS,5
+Remember: My birthday is 12/31/1995,['DOB'],medium,1,DOB,5
+Please note: Contact: 5551234567,['PHONE'],medium,1,PHONE,4
+Thanks for your assistance,[],low,0,none,11
+SOCIAL SECURITY: 987-65-4321,['SSN'],high,1,SSN,2
+Personal information: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,3
+Please note: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,4
+"By the way, let me know if you have questions",[],low,0,none,8
+It seems like see you next week,[],low,0,none,14
+Personal information: My medical record number is MR987654,['MEDICAL'],high,1,MEDICAL,3
+I think the meeting went very well,[],low,0,none,7
+Please note: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,4
+Confidential: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,7
+"For reference, my email: user123@gmail.com",['EMAIL'],medium,1,EMAIL,13
+This solution works perfectly,[],low,0,none,5
+Important: My birthday is 12/31/1995,['DOB'],medium,1,DOB,6
+I think i love listening to music,[],low,0,none,13
+"Clearly, great job on the analysis",[],low,0,none,7
+"Clearly, great job on the analysis",[],low,0,none,11
+"Obviously, good morning team",[],low,0,none,6
+"By the way, the quarterly report looks good",[],low,0,none,7
+"Obviously, how has your day been?",[],low,0,none,3
+Quick reminder that my number is 555.123.4567,['PHONE'],medium,1,PHONE,14
+"Clearly, this solution works perfectly",[],low,0,none,2
+"Clearly, the weather is sunny today",[],low,0,none,2
+Private: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,8
+"As mentioned earlier, my number is 555.123.4567",['PHONE'],medium,1,PHONE,12
+The meeting went very well,[],low,0,none,12
+"Clearly, the presentation was excellent",[],low,0,none,3
+"For reference, my card number is 5555 4444 3333 2222",['CREDIT_CARD'],high,1,CREDIT_CARD,13
+"For reference, born on 01/15/1990",['DOB'],medium,1,DOB,13
+I think looking forward to the results,[],low,0,none,9
+i'm jane doe,['PERSON'],low,1,PERSON,1
+"Obviously, have a wonderful evening",[],low,0,none,14
+"By the way, good morning team",[],low,0,none,7
+Important: My number is 555.123.4567,['PHONE'],medium,1,PHONE,6
+Just wanted to say good morning team,[],low,0,none,1
+"For reference, contact: 5551234567",['PHONE'],medium,1,PHONE,13
+"For reference, cc: 4000123456789010",['CREDIT_CARD'],high,1,CREDIT_CARD,13
+It seems like please review the documentation,[],low,0,none,13
+Personal information: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,3
+call me at (555) 123-4567,['PHONE'],medium,1,PHONE,1
+Important: My name is John Smith,['PERSON'],low,1,PERSON,6
+Please note: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,4
+"Private: Address: 456 Oak Avenue, Los Angeles, CA 90210",['ADDRESS'],medium,1,ADDRESS,8
+Confidential: My medical record number is MR987654,['MEDICAL'],high,1,MEDICAL,7
+Private: Social Security: 987-65-4321,['SSN'],high,1,SSN,8
+"During the meeting, my birthday is 12/31/1995",['DOB'],medium,1,DOB,10
+Please note: Born on 01/15/1990,['DOB'],medium,1,DOB,4
+"By the way, let me know if you have questions",[],low,0,none,12
+my account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,1
+I think i love listening to music,[],low,0,none,4
+"By the way, the deadline is next friday",[],low,0,none,0
+"Quick reminder that my home is 789 pine road, unit 4b, chicago il 60601",['ADDRESS'],medium,1,ADDRESS,14
+"During the meeting, contact: admin@website.org",['EMAIL'],medium,1,EMAIL,10
+It seems like i appreciate your hard work,[],low,0,none,14
+"Obviously, this solution works perfectly",[],low,0,none,0
+"Obviously, thanks for your assistance",[],low,0,none,0
+"Obviously, this project is going well",[],low,0,none,3
+"Obviously, the system is running smoothly",[],low,0,none,4
+Born on 01/15/1990,['DOB'],medium,1,DOB,0
+MY ACCOUNT NUMBER IS 9876543210,['ACCOUNT'],high,1,ACCOUNT,2
+"By the way, see you next week",[],low,0,none,10
+Private: My birthday is 12/31/1995,['DOB'],medium,1,DOB,8
+"Just to clarify, driver's license: dl123456789",['LICENSE'],medium,1,LICENSE,11
+"Clearly, this project is going well",[],low,0,none,0
+Confidential: My number is 555.123.4567,['PHONE'],medium,1,PHONE,7
+credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,1
+I love listening to music,[],low,0,none,3
+"Obviously, thanks for your assistance",[],low,0,none,3
+"my home is 789 pine road, unit 4b, chicago il 60601",['ADDRESS'],medium,1,ADDRESS,1
+Confidential: My birthday is 12/31/1995,['DOB'],medium,1,DOB,7
+MY NAME IS JOHN SMITH,['PERSON'],low,1,PERSON,2
+"By the way, the system is running smoothly",[],low,0,none,6
+"Obviously, the deadline is next friday",[],low,0,none,7
+"Please note: DOB: March 25, 1985",['DOB'],medium,1,DOB,4
+My name is John Smith,['PERSON'],low,1,PERSON,0
+I think the system is running smoothly,[],low,0,none,12
+"Obviously, the deadline is next friday",[],low,0,none,3
+Important: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,6
+For your records: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,9
+"Obviously, the system is running smoothly",[],low,0,none,7
+"For reference, contact: admin@website.org",['EMAIL'],medium,1,EMAIL,13
+For your records: Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,9
+Confidential: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,7
+My number is 555.123.4567,['PHONE'],medium,1,PHONE,0
+Remember: My number is 555.123.4567,['PHONE'],medium,1,PHONE,5
+I think how has your day been?,[],low,0,none,12
+It seems like have a wonderful evening,[],low,0,none,6
+It seems like the presentation was excellent,[],low,0,none,5
+It seems like good morning team,[],low,0,none,4
+It seems like the presentation was excellent,[],low,0,none,13
+It seems like the weather is sunny today,[],low,0,none,12
+"By the way, this project is going well",[],low,0,none,7
+"For reference, my medical record number is mr987654",['MEDICAL'],high,1,MEDICAL,13
+"Clearly, the system is running smoothly",[],low,0,none,5
+It seems like the meeting went very well,[],low,0,none,9
+"During the meeting, driver's license: dl123456789",['LICENSE'],medium,1,LICENSE,10
+"As mentioned earlier, my birthday is 12/31/1995",['DOB'],medium,1,DOB,12
+It seems like great job on the analysis,[],low,0,none,3
+Remember: SS# 555-44-3333,['SSN'],high,1,SSN,5
+I think this solution works perfectly,[],low,0,none,7
+I think great job on the analysis,[],low,0,none,0
+Have a wonderful evening,[],low,0,none,0
+Quick reminder that credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,14
+"Just to clarify, contact: 5551234567",['PHONE'],medium,1,PHONE,11
+"Clearly, the system is running smoothly",[],low,0,none,0
+Have a wonderful evening,[],low,0,none,7
+Important: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,6
+Remember: This is Dr. Michael Johnson,['PERSON'],low,1,PERSON,5
+"Just to clarify, ss# 555-44-3333",['SSN'],high,1,SSN,11
+"As mentioned earlier, license plate: abc-123",['LICENSE_PLATE'],low,1,LICENSE_PLATE,12
+"For reference, address: 456 oak avenue, los angeles, ca 90210",['ADDRESS'],medium,1,ADDRESS,13
+Quick reminder that patient id: 12345,['MEDICAL'],high,1,MEDICAL,14
+Good morning team,[],low,0,none,0
+Let's schedule a team meeting,[],low,0,none,8
+"Obviously, good morning team",[],low,0,none,13
+Just wanted to say see you next week,[],low,0,none,0
+"As mentioned earlier, dob: march 25, 1985",['DOB'],medium,1,DOB,12
+Private: My number is 555.123.4567,['PHONE'],medium,1,PHONE,8
+"My home is 789 Pine Road, Unit 4B, Chicago IL 60601",['ADDRESS'],medium,1,ADDRESS,0
+Let's schedule a team meeting,[],low,0,none,1
+CONTACT: ADMIN@WEBSITE.ORG,['EMAIL'],medium,1,EMAIL,2
+"Obviously, the meeting went very well",[],low,0,none,5
+Important: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,6
+Important: Born on 01/15/1990,['DOB'],medium,1,DOB,6
+"By the way, see you next week",[],low,0,none,2
+"During the meeting, this is dr. michael johnson",['PERSON'],low,1,PERSON,10
+"Obviously, let me know if you have questions",[],low,0,none,11
+I think the weather is sunny today,[],low,0,none,7
+Let me know if you have questions,[],low,0,none,14
+"Obviously, this solution works perfectly",[],low,0,none,9
+I think the deadline is next friday,[],low,0,none,12
+Social Security: 987-65-4321,['SSN'],high,1,SSN,0
+Just wanted to say thanks for your assistance,[],low,0,none,2
+Private: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,8
+It seems like looking forward to the results,[],low,0,none,12
+For your records: My birthday is 12/31/1995,['DOB'],medium,1,DOB,9
+The meeting went very well,[],low,0,none,2
+The meeting went very well,[],low,0,none,3
+"During the meeting, my medical record number is mr987654",['MEDICAL'],high,1,MEDICAL,10
+"Clearly, have a wonderful evening",[],low,0,none,11
+Quick reminder that my card number is 5555 4444 3333 2222,['CREDIT_CARD'],high,1,CREDIT_CARD,14
+Great job on the analysis,[],low,0,none,1
+"As mentioned earlier, my ssn is 123-45-6789",['SSN'],high,1,SSN,12
+Just wanted to say this solution works perfectly,[],low,0,none,3
+It seems like the presentation was excellent,[],low,0,none,4
+"By the way, let me know if you have questions",[],low,0,none,7
+ACCOUNT: 1234567890,['ACCOUNT'],high,1,ACCOUNT,2
+Quick reminder that social security: 987-65-4321,['SSN'],high,1,SSN,14
+"By the way, looking forward to the results",[],low,0,none,10
+"Clearly, this project is going well",[],low,0,none,10
+I think let me know if you have questions,[],low,0,none,5
+"I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,0
+"Just to clarify, email me at john.doe@company.com",['EMAIL'],medium,1,EMAIL,11
+"Just to clarify, dob: march 25, 1985",['DOB'],medium,1,DOB,11
+Personal information: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,3
+"Private: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,8
+"Clearly, thanks for your assistance",[],low,0,none,5
+"Just to clarify, i'm jane doe",['PERSON'],low,1,PERSON,11
+Confidential: This is Dr. Michael Johnson,['PERSON'],low,1,PERSON,7
+Just wanted to say see you next week,[],low,0,none,8
+For your records: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,9
+Confidential: My name is John Smith,['PERSON'],low,1,PERSON,7
+license plate: abc-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,1
+Please note: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,4
+I think the deadline is next friday,[],low,0,none,1
+It seems like great job on the analysis,[],low,0,none,9
+Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,0
+"Obviously, have a wonderful evening",[],low,0,none,13
+"Clearly, thanks for your assistance",[],low,0,none,6
+"Just to clarify, license plate: abc-123",['LICENSE_PLATE'],low,1,LICENSE_PLATE,11
+My card number is 5555 4444 3333 2222,['CREDIT_CARD'],high,1,CREDIT_CARD,0
+Remember: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,5
+"Obviously, the presentation was excellent",[],low,0,none,14
+"By the way, the presentation was excellent",[],low,0,none,7
+Just wanted to say let's schedule a team meeting,[],low,0,none,12
+"For reference, my number is 555.123.4567",['PHONE'],medium,1,PHONE,13
+License plate: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,0
+Just wanted to say the meeting went very well,[],low,0,none,4
+Looking forward to the results,[],low,0,none,4
+Just wanted to say looking forward to the results,[],low,0,none,5
+For your records: My SSN is 123-45-6789,['SSN'],high,1,SSN,9
+Confidential: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,7
+Just wanted to say the deadline is next friday,[],low,0,none,10
+I think looking forward to the results,[],low,0,none,6
+For your records: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,9
+I think let me know if you have questions,[],low,0,none,0
+"Obviously, looking forward to the results",[],low,0,none,13
+"Obviously, the weather is sunny today",[],low,0,none,6
+Just wanted to say see you next week,[],low,0,none,12
+Just wanted to say the presentation was excellent,[],low,0,none,2
+"During the meeting, my account number is 9876543210",['ACCOUNT'],high,1,ACCOUNT,10
+"Just to clarify, call me at (555) 123-4567",['PHONE'],medium,1,PHONE,11
+"Obviously, have a wonderful evening",[],low,0,none,4
+"For reference, this is dr. michael johnson",['PERSON'],low,1,PERSON,13
+Personal information: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,3
+"Personal information: My home is 789 Pine Road, Unit 4B, Chicago IL 60601",['ADDRESS'],medium,1,ADDRESS,3
+For your records: SS# 555-44-3333,['SSN'],high,1,SSN,9
+Personal information: License plate: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,3
+born on 01/15/1990,['DOB'],medium,1,DOB,1
+"By the way, i appreciate your hard work",[],low,0,none,13
+"During the meeting, my ssn is 123-45-6789",['SSN'],high,1,SSN,10
+"Clearly, let me know if you have questions",[],low,0,none,9
+I think how has your day been?,[],low,0,none,2
+For your records: My number is 555.123.4567,['PHONE'],medium,1,PHONE,9
+"Clearly, the system is running smoothly",[],low,0,none,9
+It seems like let's schedule a team meeting,[],low,0,none,3
+"By the way, i appreciate your hard work",[],low,0,none,5
+"As mentioned earlier, ss# 555-44-3333",['SSN'],high,1,SSN,12
+Just wanted to say looking forward to the results,[],low,0,none,0
+account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,1
+Just wanted to say let me know if you have questions,[],low,0,none,1
+Important: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,6
+CONTACT: 5551234567,['PHONE'],medium,1,PHONE,2
+For your records: My name is John Smith,['PERSON'],low,1,PERSON,9
+It seems like good morning team,[],low,0,none,2
+"Obviously, the deadline is next friday",[],low,0,none,9
+Just wanted to say let me know if you have questions,[],low,0,none,4
+"By the way, i love listening to music",[],low,0,none,9
+Private: My name is John Smith,['PERSON'],low,1,PERSON,8
+"Clearly, great job on the analysis",[],low,0,none,14
+Confidential: Social Security: 987-65-4321,['SSN'],high,1,SSN,7
+I think great job on the analysis,[],low,0,none,4
+"Obviously, let's schedule a team meeting",[],low,0,none,13
+"Just to clarify, social security: 987-65-4321",['SSN'],high,1,SSN,11
+Just wanted to say looking forward to the results,[],low,0,none,14
+It seems like how has your day been?,[],low,0,none,6
+It seems like the weather is sunny today,[],low,0,none,0
+MY EMAIL: USER123@GMAIL.COM,['EMAIL'],medium,1,EMAIL,2
+It seems like please review the documentation,[],low,0,none,5
+The deadline is next Friday,[],low,0,none,14
+It seems like thanks for your assistance,[],low,0,none,1
+"By the way, let me know if you have questions",[],low,0,none,10
+SS# 555-44-3333,['SSN'],high,1,SSN,0
+Thanks for your assistance,[],low,0,none,9
+Private: My card number is 5555 4444 3333 2222,['CREDIT_CARD'],high,1,CREDIT_CARD,8
+Remember: Born on 01/15/1990,['DOB'],medium,1,DOB,5
+Important: I'm Jane Doe,['PERSON'],low,1,PERSON,6
+The weather is sunny today,[],low,0,none,9
+The presentation was excellent,[],low,0,none,11
+Confidential: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,7
+Personal information: My number is 555.123.4567,['PHONE'],medium,1,PHONE,3
+"Obviously, great job on the analysis",[],low,0,none,5
+"By the way, i appreciate your hard work",[],low,0,none,12
+"During the meeting, account: 1234567890",['ACCOUNT'],high,1,ACCOUNT,10
+Just wanted to say let me know if you have questions,[],low,0,none,6
+Please note: My SSN is 123-45-6789,['SSN'],high,1,SSN,4
+Quick reminder that email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,14
+EMAIL ME AT JOHN.DOE@COMPANY.COM,['EMAIL'],medium,1,EMAIL,2
+"Clearly, the presentation was excellent",[],low,0,none,6
+Just wanted to say this project is going well,[],low,0,none,9
+"Personal information: Address: 456 Oak Avenue, Los Angeles, CA 90210",['ADDRESS'],medium,1,ADDRESS,3
+It seems like see you next week,[],low,0,none,7
+See you next week,[],low,0,none,4
+Private: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,8
+"By the way, the meeting went very well",[],low,0,none,8
+"As mentioned earlier, address: 456 oak avenue, los angeles, ca 90210",['ADDRESS'],medium,1,ADDRESS,12
+Just wanted to say how has your day been?,[],low,0,none,5
+I think i appreciate your hard work,[],low,0,none,6
+"Address: 456 Oak Avenue, Los Angeles, CA 90210",['ADDRESS'],medium,1,ADDRESS,0
+"Clearly, let's schedule a team meeting",[],low,0,none,10
+It seems like see you next week,[],low,0,none,6
+Just wanted to say this project is going well,[],low,0,none,12
+"Clearly, the quarterly report looks good",[],low,0,none,10
+Personal information: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,3
+It seems like this project is going well,[],low,0,none,2
+Call me at (555) 123-4567,['PHONE'],medium,1,PHONE,0
+"Confidential: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,7
+I'm Jane Doe,['PERSON'],low,1,PERSON,0
+"Obviously, this solution works perfectly",[],low,0,none,13
+"Just to clarify, this is dr. michael johnson",['PERSON'],low,1,PERSON,11
+"Clearly, how has your day been?",[],low,0,none,14
+"For reference, social security: 987-65-4321",['SSN'],high,1,SSN,13
+"Just to clarify, credit card: 4532-1234-5678-9012",['CREDIT_CARD'],high,1,CREDIT_CARD,11
+I love listening to music,[],low,0,none,11
+patient id: 12345,['MEDICAL'],high,1,MEDICAL,1
+"As mentioned earlier, cc: 4000123456789010",['CREDIT_CARD'],high,1,CREDIT_CARD,12
+Confidential: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,7
+"Obviously, this solution works perfectly",[],low,0,none,10
+"As mentioned earlier, email me at john.doe@company.com",['EMAIL'],medium,1,EMAIL,12
+"Obviously, the weather is sunny today",[],low,0,none,8
+"By the way, the quarterly report looks good",[],low,0,none,5
+"Obviously, i appreciate your hard work",[],low,0,none,8
+I think please review the documentation,[],low,0,none,9
+I think please review the documentation,[],low,0,none,2
+"Obviously, i love listening to music",[],low,0,none,0
+"For reference, my account number is 9876543210",['ACCOUNT'],high,1,ACCOUNT,13
+"By the way, i love listening to music",[],low,0,none,6
+For your records: My card number is 5555 4444 3333 2222,['CREDIT_CARD'],high,1,CREDIT_CARD,9
+"Obviously, i appreciate your hard work",[],low,0,none,1
+Please note: Social Security: 987-65-4321,['SSN'],high,1,SSN,4
+"Just to clarify, contact: admin@website.org",['EMAIL'],medium,1,EMAIL,11
+"For reference, email me at john.doe@company.com",['EMAIL'],medium,1,EMAIL,13
+It seems like this project is going well,[],low,0,none,13
+Please review the documentation,[],low,0,none,14
+The quarterly report looks good,[],low,0,none,14
+"Obviously, have a wonderful evening",[],low,0,none,10
+I think i love listening to music,[],low,0,none,1
+It seems like i appreciate your hard work,[],low,0,none,9
+It seems like this project is going well,[],low,0,none,1
+"Obviously, see you next week",[],low,0,none,13
+"By the way, this solution works perfectly",[],low,0,none,12
+"As mentioned earlier, this is dr. michael johnson",['PERSON'],low,1,PERSON,12
+"Clearly, the weather is sunny today",[],low,0,none,4
+"Clearly, let me know if you have questions",[],low,0,none,13
+See you next week,[],low,0,none,11
+Remember: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,5
+Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,0
+"Clearly, looking forward to the results",[],low,0,none,7
+I think this solution works perfectly,[],low,0,none,14
+"By the way, thanks for your assistance",[],low,0,none,8
+Great job on the analysis,[],low,0,none,13
+Great job on the analysis,[],low,0,none,2
+"As mentioned earlier, my card number is 5555 4444 3333 2222",['CREDIT_CARD'],high,1,CREDIT_CARD,12
+Just wanted to say the presentation was excellent,[],low,0,none,10
+Quick reminder that born on 01/15/1990,['DOB'],medium,1,DOB,14
+I think the system is running smoothly,[],low,0,none,1
+"By the way, the weather is sunny today",[],low,0,none,3
+CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,0
+"By the way, please review the documentation",[],low,0,none,1
+"During the meeting, dob: march 25, 1985",['DOB'],medium,1,DOB,10
+"Obviously, good morning team",[],low,0,none,12
+Important: Contact: 5551234567,['PHONE'],medium,1,PHONE,6
+Just wanted to say i appreciate your hard work,[],low,0,none,2
+Confidential: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,7
+BORN ON 01/15/1990,['DOB'],medium,1,DOB,2
+Important: My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,6
+Confidential: My SSN is 123-45-6789,['SSN'],high,1,SSN,7
+"Clearly, how has your day been?",[],low,0,none,8
+"Clearly, thanks for your assistance",[],low,0,none,7
+I think thanks for your assistance,[],low,0,none,4
+For your records: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,9
+Good morning team,[],low,0,none,14
+It seems like please review the documentation,[],low,0,none,12
+"By the way, the deadline is next friday",[],low,0,none,4
+Remember: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,5
+"Obviously, thanks for your assistance",[],low,0,none,12
+Remember: Contact: 5551234567,['PHONE'],medium,1,PHONE,5
+"By the way, the weather is sunny today",[],low,0,none,1
+Personal information: SS# 555-44-3333,['SSN'],high,1,SSN,3
+Personal information: Patient ID: 12345,['MEDICAL'],high,1,MEDICAL,3
+"Obviously, thanks for your assistance",[],low,0,none,13
+Just wanted to say please review the documentation,[],low,0,none,0
+Important: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,6
+"By the way, the weather is sunny today",[],low,0,none,11
+Private: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,8
+Personal information: Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,3
+Important: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,6
+Personal information: My birthday is 12/31/1995,['DOB'],medium,1,DOB,3
+"Just to clarify, my email: user123@gmail.com",['EMAIL'],medium,1,EMAIL,11
+Personal information: I'm Jane Doe,['PERSON'],low,1,PERSON,3
+For your records: My medical record number is MR987654,['MEDICAL'],high,1,MEDICAL,9
+Just wanted to say the meeting went very well,[],low,0,none,11
+Private: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,8
+Private: Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,8
+"Please note: My home is 789 Pine Road, Unit 4B, Chicago IL 60601",['ADDRESS'],medium,1,ADDRESS,4
+this is dr. michael johnson,['PERSON'],low,1,PERSON,1
+Important: My SSN is 123-45-6789,['SSN'],high,1,SSN,6
+"For reference, my home is 789 pine road, unit 4b, chicago il 60601",['ADDRESS'],medium,1,ADDRESS,13
+"Just to clarify, my ssn is 123-45-6789",['SSN'],high,1,SSN,11
+"Clearly, this project is going well",[],low,0,none,5
+"Obviously, i appreciate your hard work",[],low,0,none,11
+"Just to clarify, phone: +1-555-123-4567",['PHONE'],medium,1,PHONE,11
+I think please review the documentation,[],low,0,none,7
+Remember: My SSN is 123-45-6789,['SSN'],high,1,SSN,5
+MY BIRTHDAY IS 12/31/1995,['DOB'],medium,1,DOB,2
+Confidential: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,7
+It seems like have a wonderful evening,[],low,0,none,3
+I think have a wonderful evening,[],low,0,none,9
+"Obviously, this project is going well",[],low,0,none,14
+Important: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,6
+Please review the documentation,[],low,0,none,3
+Just wanted to say see you next week,[],low,0,none,5
+phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,1
+Just wanted to say good morning team,[],low,0,none,11
+"Clearly, please review the documentation",[],low,0,none,6
+For your records: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,9
+"Obviously, the quarterly report looks good",[],low,0,none,8
+Important: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,6
+I think great job on the analysis,[],low,0,none,12
+"Clearly, have a wonderful evening",[],low,0,none,12
+"Quick reminder that i live at 123 main street, new york, ny 10001",['ADDRESS'],medium,1,ADDRESS,14
+"For reference, my name is john smith",['PERSON'],low,1,PERSON,13
+"Just to clarify, my medical record number is mr987654",['MEDICAL'],high,1,MEDICAL,11
+contact: admin@website.org,['EMAIL'],medium,1,EMAIL,1
+It seems like the weather is sunny today,[],low,0,none,13
+It seems like let me know if you have questions,[],low,0,none,3
+Just wanted to say have a wonderful evening,[],low,0,none,2
+"During the meeting, i'm jane doe",['PERSON'],low,1,PERSON,10
+Driver's license: DL123456789,['LICENSE'],medium,1,LICENSE,0
+"Obviously, i love listening to music",[],low,0,none,14
+"Clearly, please review the documentation",[],low,0,none,10
+"By the way, let's schedule a team meeting",[],low,0,none,5
+"During the meeting, patient id: 12345",['MEDICAL'],high,1,MEDICAL,10
+I love listening to music,[],low,0,none,10
+"Remember: DOB: March 25, 1985",['DOB'],medium,1,DOB,5
+"As mentioned earlier, patient id: 12345",['MEDICAL'],high,1,MEDICAL,12
+MY MEDICAL RECORD NUMBER IS MR987654,['MEDICAL'],high,1,MEDICAL,2
+"During the meeting, my name is john smith",['PERSON'],low,1,PERSON,10
+Quick reminder that contact: 5551234567,['PHONE'],medium,1,PHONE,14
+"Obviously, have a wonderful evening",[],low,0,none,5
+For your records: Born on 01/15/1990,['DOB'],medium,1,DOB,9
+"For reference, credit card: 4532-1234-5678-9012",['CREDIT_CARD'],high,1,CREDIT_CARD,13
+It seems like i appreciate your hard work,[],low,0,none,7
+"Quick reminder that dob: march 25, 1985",['DOB'],medium,1,DOB,14
+"Clearly, i appreciate your hard work",[],low,0,none,10
+Quick reminder that license plate: abc-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,14
+"Remember: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,5
+"As mentioned earlier, born on 01/15/1990",['DOB'],medium,1,DOB,12
+Just wanted to say i love listening to music,[],low,0,none,8
+"Obviously, the system is running smoothly",[],low,0,none,14
+Please note: This is Dr. Michael Johnson,['PERSON'],low,1,PERSON,4
+"By the way, this project is going well",[],low,0,none,6
+My email: user123@gmail.com,['EMAIL'],medium,1,EMAIL,0
+It seems like the quarterly report looks good,[],low,0,none,6
+my birthday is 12/31/1995,['DOB'],medium,1,DOB,1
+"By the way, the system is running smoothly",[],low,0,none,2
+I think how has your day been?,[],low,0,none,11
+I think i love listening to music,[],low,0,none,12
+"I LIVE AT 123 MAIN STREET, NEW YORK, NY 10001",['ADDRESS'],medium,1,ADDRESS,2
+"During the meeting, social security: 987-65-4321",['SSN'],high,1,SSN,10
+Just wanted to say the system is running smoothly,[],low,0,none,13
+PATIENT ID: 12345,['MEDICAL'],high,1,MEDICAL,2
+"Clearly, the meeting went very well",[],low,0,none,6
+I think good morning team,[],low,0,none,3
+"Confidential: Address: 456 Oak Avenue, Los Angeles, CA 90210",['ADDRESS'],medium,1,ADDRESS,7
+"Just to clarify, my birthday is 12/31/1995",['DOB'],medium,1,DOB,11
+Remember: My account number is 9876543210,['ACCOUNT'],high,1,ACCOUNT,5
+Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,0
+"Clearly, the deadline is next friday",[],low,0,none,11
+"Obviously, i appreciate your hard work",[],low,0,none,3
+Quick reminder that phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,14
+Remember: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,5
+My SSN is 123-45-6789,['SSN'],high,1,SSN,0
+It seems like how has your day been?,[],low,0,none,0
+Quick reminder that my name is john smith,['PERSON'],low,1,PERSON,14
+Private: CC: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,8
+It seems like the presentation was excellent,[],low,0,none,9
+"By the way, this solution works perfectly",[],low,0,none,6
+It seems like see you next week,[],low,0,none,1
+"Just to clarify, patient id: 12345",['MEDICAL'],high,1,MEDICAL,11
+Confidential: Contact: 5551234567,['PHONE'],medium,1,PHONE,7
+Please note: Contact: admin@website.org,['EMAIL'],medium,1,EMAIL,4
+"By the way, the quarterly report looks good",[],low,0,none,9
+It seems like have a wonderful evening,[],low,0,none,1
+Personal information: My SSN is 123-45-6789,['SSN'],high,1,SSN,3
+I think the weather is sunny today,[],low,0,none,10
+Please note: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,4
+"By the way, the system is running smoothly",[],low,0,none,10
+"As mentioned earlier, call me at (555) 123-4567",['PHONE'],medium,1,PHONE,12
+Confidential: SS# 555-44-3333,['SSN'],high,1,SSN,7
+Confidential: Account: 1234567890,['ACCOUNT'],high,1,ACCOUNT,7
+"By the way, the quarterly report looks good",[],low,0,none,2
+I think good morning team,[],low,0,none,5
+It seems like the meeting went very well,[],low,0,none,10
+"By the way, i love listening to music",[],low,0,none,7
+"Personal information: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,3
+I think the quarterly report looks good,[],low,0,none,13
+"By the way, the quarterly report looks good",[],low,0,none,3
+"Quick reminder that address: 456 oak avenue, los angeles, ca 90210",['ADDRESS'],medium,1,ADDRESS,14
+Contact: 5551234567,['PHONE'],medium,1,PHONE,0
+I think please review the documentation,[],low,0,none,11
+I think the quarterly report looks good,[],low,0,none,12
+"During the meeting, phone: +1-555-123-4567",['PHONE'],medium,1,PHONE,10
+Quick reminder that call me at (555) 123-4567,['PHONE'],medium,1,PHONE,14
+I think i love listening to music,[],low,0,none,5
+I think how has your day been?,[],low,0,none,10
+Let me know if you have questions,[],low,0,none,2
+It seems like the presentation was excellent,[],low,0,none,12
+"Confidential: DOB: March 25, 1985",['DOB'],medium,1,DOB,7
+Just wanted to say this solution works perfectly,[],low,0,none,1
+"For reference, i live at 123 main street, new york, ny 10001",['ADDRESS'],medium,1,ADDRESS,13
+"Clearly, this solution works perfectly",[],low,0,none,4
+Just wanted to say good morning team,[],low,0,none,8
+PHONE: +1-555-123-4567,['PHONE'],medium,1,PHONE,2
+Just wanted to say thanks for your assistance,[],low,0,none,14
+Just wanted to say how has your day been?,[],low,0,none,1
+Important: License plate: ABC-123,['LICENSE_PLATE'],low,1,LICENSE_PLATE,6
+Quick reminder that cc: 4000123456789010,['CREDIT_CARD'],high,1,CREDIT_CARD,14
+Just wanted to say let's schedule a team meeting,[],low,0,none,0
+It seems like thanks for your assistance,[],low,0,none,10
+Important: SS# 555-44-3333,['SSN'],high,1,SSN,6
+"For your records: I live at 123 Main Street, New York, NY 10001",['ADDRESS'],medium,1,ADDRESS,9
+"As mentioned earlier, contact: admin@website.org",['EMAIL'],medium,1,EMAIL,12
+See you next week,[],low,0,none,9
+It seems like this solution works perfectly,[],low,0,none,8
+I think the presentation was excellent,[],low,0,none,0
+"By the way, the quarterly report looks good",[],low,0,none,0
+The weather is sunny today,[],low,0,none,5
+For your records: Email me at john.doe@company.com,['EMAIL'],medium,1,EMAIL,9
+driver's license: dl123456789,['LICENSE'],medium,1,LICENSE,1
+Just wanted to say the deadline is next friday,[],low,0,none,5
+For your records: Phone: +1-555-123-4567,['PHONE'],medium,1,PHONE,9
+The system is running smoothly,[],low,0,none,3
+Just wanted to say i love listening to music,[],low,0,none,2
+Remember: My name is John Smith,['PERSON'],low,1,PERSON,5
+"By the way, the meeting went very well",[],low,0,none,14
+Please note: Credit card: 4532-1234-5678-9012,['CREDIT_CARD'],high,1,CREDIT_CARD,4
+"As mentioned earlier, my home is 789 pine road, unit 4b, chicago il 60601",['ADDRESS'],medium,1,ADDRESS,12
+DRIVER'S LICENSE: DL123456789,['LICENSE'],medium,1,LICENSE,2
+Personal information: Social Security: 987-65-4321,['SSN'],high,1,SSN,3
+Quick reminder that ss# 555-44-3333,['SSN'],high,1,SSN,14
+Just wanted to say the meeting went very well,[],low,0,none,1
+"For reference, license plate: abc-123",['LICENSE_PLATE'],low,1,LICENSE_PLATE,13

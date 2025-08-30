@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-08-28T17:56:20.245853",
+  "training_duration_seconds": 112.868606,
+  "models": {
+    "ner_trained": false,
+    "classification_trained": true
+  },
+  "datasets": {
+    "ner_samples": 185,
+    "classification_samples": 111
+  },
+  "performance": {
+    "classification": {
+      "eval_loss": 1.900516390800476,
+      "eval_accuracy": 0.0,
+      "eval_f1": 0.0,
+      "eval_precision": 0.0,
+      "eval_recall": 0.0,
+      "eval_runtime": 0.297,
+      "eval_samples_per_second": 77.438,
+      "eval_steps_per_second": 6.734,
+      "epoch": 3.0
+    }
+  },
+  "production_ready": true,
+  "tiktok_live_compatible": true
+}

@@ -1,0 +1,451 @@
+text,audio_privacy_level,audio_category,requires_protection
+Personal information disclosure,0,content_privacy,False
+Protected business communications,2,content_privacy,True
+Speaker verification systems,1,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Personal information disclosure,2,content_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Protected business communications,1,content_privacy,True
+Emotional pattern recognition,0,emotional_privacy,False
+Sentiment analysis from voice,2,emotional_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Protected business communications,1,content_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Voice-based identity confirmation,1,voice_biometric,True
+Sensitive conversation content,2,content_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Stress level identification,2,emotional_privacy,True
+Voice authentication biometric data,2,voice_biometric,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice authentication biometric data,1,voice_biometric,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Protected business communications,1,content_privacy,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Speaker verification systems,1,voice_biometric,True
+Protected business communications,0,content_privacy,False
+Personal information disclosure,2,content_privacy,True
+Sentiment analysis from voice,0,emotional_privacy,False
+Voice-based identity confirmation,1,voice_biometric,True
+Stress level identification,2,emotional_privacy,True
+Emotional pattern recognition,2,emotional_privacy,True
+Private discussion topics,1,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Personal information disclosure,2,content_privacy,True
+Protected business communications,1,content_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Protected business communications,0,content_privacy,False
+Protected business communications,2,content_privacy,True
+Emotional state detection from speech,1,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Stress level identification,1,emotional_privacy,True
+Personal information disclosure,1,content_privacy,True
+Private discussion topics,1,content_privacy,True
+Stress level identification,0,emotional_privacy,False
+Mood analysis from voice tone,2,emotional_privacy,True
+Personal information disclosure,2,content_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice authentication biometric data,0,voice_biometric,False
+Mood analysis from voice tone,2,emotional_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Personal information disclosure,0,content_privacy,False
+Speaker identification from voice patterns,2,voice_biometric,True
+Speaker verification systems,2,voice_biometric,True
+Stress level identification,2,emotional_privacy,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Voice authentication biometric data,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Protected business communications,0,content_privacy,False
+Confidential meeting audio,0,content_privacy,False
+Sentiment analysis from voice,0,emotional_privacy,False
+Speaker verification systems,1,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Mood analysis from voice tone,1,emotional_privacy,True
+Protected business communications,1,content_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Emotional state detection from speech,2,emotional_privacy,True
+Speaker verification systems,1,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Mood analysis from voice tone,1,emotional_privacy,True
+Confidential meeting audio,2,content_privacy,True
+Confidential meeting audio,0,content_privacy,False
+Sensitive conversation content,2,content_privacy,True
+Voice authentication biometric data,1,voice_biometric,True
+Emotional state detection from speech,0,emotional_privacy,False
+Speaker identification from voice patterns,1,voice_biometric,True
+Speaker identification from voice patterns,0,voice_biometric,False
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice-based identity confirmation,2,voice_biometric,True
+Emotional pattern recognition,1,emotional_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Vocal fingerprint recognition,1,voice_biometric,True
+Sensitive conversation content,2,content_privacy,True
+Personal information disclosure,0,content_privacy,False
+Confidential meeting audio,1,content_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Speaker verification systems,1,voice_biometric,True
+Personal information disclosure,2,content_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional state detection from speech,0,emotional_privacy,False
+Emotional pattern recognition,2,emotional_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Voice authentication biometric data,0,voice_biometric,False
+Private discussion topics,0,content_privacy,False
+Sensitive conversation content,2,content_privacy,True
+Personal information disclosure,2,content_privacy,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Personal information disclosure,0,content_privacy,False
+Voice-based identity confirmation,2,voice_biometric,True
+Sensitive conversation content,1,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Emotional state detection from speech,2,emotional_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Stress level identification,1,emotional_privacy,True
+Stress level identification,2,emotional_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Speaker verification systems,2,voice_biometric,True
+Sentiment analysis from voice,0,emotional_privacy,False
+Stress level identification,0,emotional_privacy,False
+Speaker identification from voice patterns,0,voice_biometric,False
+Sentiment analysis from voice,2,emotional_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Personal information disclosure,1,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Stress level identification,0,emotional_privacy,False
+Protected business communications,1,content_privacy,True
+Speaker verification systems,0,voice_biometric,False
+Speaker verification systems,0,voice_biometric,False
+Protected business communications,1,content_privacy,True
+Emotional state detection from speech,0,emotional_privacy,False
+Private discussion topics,1,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Emotional state detection from speech,0,emotional_privacy,False
+Personal information disclosure,0,content_privacy,False
+Voice-based identity confirmation,2,voice_biometric,True
+Personal information disclosure,2,content_privacy,True
+Personal information disclosure,1,content_privacy,True
+Emotional state detection from speech,1,emotional_privacy,True
+Emotional pattern recognition,1,emotional_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Mood analysis from voice tone,0,emotional_privacy,False
+Voice-based identity confirmation,2,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Emotional state detection from speech,1,emotional_privacy,True
+Personal information disclosure,2,content_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Mood analysis from voice tone,1,emotional_privacy,True
+Stress level identification,2,emotional_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Personal information disclosure,1,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Confidential meeting audio,0,content_privacy,False
+Speaker verification systems,2,voice_biometric,True
+Emotional pattern recognition,1,emotional_privacy,True
+Emotional pattern recognition,1,emotional_privacy,True
+Confidential meeting audio,2,content_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Emotional pattern recognition,2,emotional_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Protected business communications,2,content_privacy,True
+Personal information disclosure,0,content_privacy,False
+Private discussion topics,1,content_privacy,True
+Voice authentication biometric data,2,voice_biometric,True
+Voice-based identity confirmation,2,voice_biometric,True
+Protected business communications,1,content_privacy,True
+Mood analysis from voice tone,1,emotional_privacy,True
+Emotional pattern recognition,0,emotional_privacy,False
+Protected business communications,2,content_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Speaker verification systems,1,voice_biometric,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Sensitive conversation content,1,content_privacy,True
+Speaker identification from voice patterns,0,voice_biometric,False
+Sensitive conversation content,1,content_privacy,True
+Confidential meeting audio,0,content_privacy,False
+Emotional state detection from speech,1,emotional_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Emotional state detection from speech,0,emotional_privacy,False
+Mood analysis from voice tone,0,emotional_privacy,False
+Speaker identification from voice patterns,2,voice_biometric,True
+Emotional pattern recognition,2,emotional_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Protected business communications,2,content_privacy,True
+Private discussion topics,0,content_privacy,False
+Mood analysis from voice tone,2,emotional_privacy,True
+Personal information disclosure,1,content_privacy,True
+Confidential meeting audio,1,content_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Emotional pattern recognition,0,emotional_privacy,False
+Emotional state detection from speech,1,emotional_privacy,True
+Stress level identification,1,emotional_privacy,True
+Voice-based identity confirmation,2,voice_biometric,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Speaker verification systems,1,voice_biometric,True
+Confidential meeting audio,1,content_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Emotional pattern recognition,1,emotional_privacy,True
+Voice-based identity confirmation,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Voice-based identity confirmation,1,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Sensitive conversation content,0,content_privacy,False
+Stress level identification,2,emotional_privacy,True
+Speaker verification systems,0,voice_biometric,False
+Sentiment analysis from voice,2,emotional_privacy,True
+Vocal fingerprint recognition,0,voice_biometric,False
+Speaker identification from voice patterns,1,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Voice-based identity confirmation,1,voice_biometric,True
+Voice-based identity confirmation,2,voice_biometric,True
+Mood analysis from voice tone,1,emotional_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Stress level identification,1,emotional_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional pattern recognition,2,emotional_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Personal information disclosure,0,content_privacy,False
+Voice-based identity confirmation,2,voice_biometric,True
+Voice-based identity confirmation,0,voice_biometric,False
+Private discussion topics,2,content_privacy,True
+Confidential meeting audio,2,content_privacy,True
+Stress level identification,0,emotional_privacy,False
+Stress level identification,2,emotional_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Confidential meeting audio,0,content_privacy,False
+Stress level identification,1,emotional_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Confidential meeting audio,1,content_privacy,True
+Protected business communications,0,content_privacy,False
+Protected business communications,2,content_privacy,True
+Confidential meeting audio,1,content_privacy,True
+Confidential meeting audio,2,content_privacy,True
+Sensitive conversation content,0,content_privacy,False
+Emotional pattern recognition,0,emotional_privacy,False
+Sensitive conversation content,2,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Emotional state detection from speech,1,emotional_privacy,True
+Sentiment analysis from voice,0,emotional_privacy,False
+Confidential meeting audio,0,content_privacy,False
+Sentiment analysis from voice,1,emotional_privacy,True
+Protected business communications,1,content_privacy,True
+Sensitive conversation content,2,content_privacy,True
+Stress level identification,1,emotional_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional state detection from speech,1,emotional_privacy,True
+Voice-based identity confirmation,2,voice_biometric,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Emotional pattern recognition,1,emotional_privacy,True
+Stress level identification,1,emotional_privacy,True
+Speaker verification systems,0,voice_biometric,False
+Voice-based identity confirmation,1,voice_biometric,True
+Stress level identification,1,emotional_privacy,True
+Personal information disclosure,1,content_privacy,True
+Sensitive conversation content,1,content_privacy,True
+Voice-based identity confirmation,2,voice_biometric,True
+Protected business communications,2,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Private discussion topics,0,content_privacy,False
+Voice authentication biometric data,1,voice_biometric,True
+Personal information disclosure,2,content_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Emotional pattern recognition,2,emotional_privacy,True
+Mood analysis from voice tone,0,emotional_privacy,False
+Emotional state detection from speech,1,emotional_privacy,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Emotional state detection from speech,0,emotional_privacy,False
+Voice-based identity confirmation,1,voice_biometric,True
+Confidential meeting audio,0,content_privacy,False
+Personal information disclosure,0,content_privacy,False
+Stress level identification,2,emotional_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Voice authentication biometric data,2,voice_biometric,True
+Emotional pattern recognition,0,emotional_privacy,False
+Private discussion topics,2,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Confidential meeting audio,2,content_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Sentiment analysis from voice,0,emotional_privacy,False
+Emotional pattern recognition,2,emotional_privacy,True
+Confidential meeting audio,1,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Emotional pattern recognition,1,emotional_privacy,True
+Personal information disclosure,1,content_privacy,True
+Speaker verification systems,2,voice_biometric,True
+Stress level identification,2,emotional_privacy,True
+Confidential meeting audio,2,content_privacy,True
+Stress level identification,1,emotional_privacy,True
+Emotional state detection from speech,0,emotional_privacy,False
+Speaker verification systems,0,voice_biometric,False
+Sentiment analysis from voice,2,emotional_privacy,True
+Stress level identification,0,emotional_privacy,False
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice authentication biometric data,0,voice_biometric,False
+Voice authentication biometric data,1,voice_biometric,True
+Emotional pattern recognition,2,emotional_privacy,True
+Sensitive conversation content,0,content_privacy,False
+Mood analysis from voice tone,2,emotional_privacy,True
+Personal information disclosure,1,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Private discussion topics,1,content_privacy,True
+Stress level identification,0,emotional_privacy,False
+Emotional pattern recognition,1,emotional_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional state detection from speech,1,emotional_privacy,True
+Confidential meeting audio,1,content_privacy,True
+Voice-based identity confirmation,0,voice_biometric,False
+Vocal fingerprint recognition,2,voice_biometric,True
+Voice-based identity confirmation,1,voice_biometric,True
+Voice-based identity confirmation,2,voice_biometric,True
+Protected business communications,1,content_privacy,True
+Speaker identification from voice patterns,0,voice_biometric,False
+Sensitive conversation content,1,content_privacy,True
+Personal information disclosure,0,content_privacy,False
+Vocal fingerprint recognition,1,voice_biometric,True
+Sensitive conversation content,1,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Emotional state detection from speech,0,emotional_privacy,False
+Voice authentication biometric data,2,voice_biometric,True
+Protected business communications,1,content_privacy,True
+Confidential meeting audio,1,content_privacy,True
+Stress level identification,2,emotional_privacy,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Personal information disclosure,2,content_privacy,True
+Private discussion topics,2,content_privacy,True
+Stress level identification,2,emotional_privacy,True
+Mood analysis from voice tone,0,emotional_privacy,False
+Stress level identification,2,emotional_privacy,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Personal information disclosure,2,content_privacy,True
+Emotional pattern recognition,1,emotional_privacy,True
+Protected business communications,1,content_privacy,True
+Personal information disclosure,2,content_privacy,True
+Sensitive conversation content,1,content_privacy,True
+Private discussion topics,1,content_privacy,True
+Emotional pattern recognition,0,emotional_privacy,False
+Mood analysis from voice tone,1,emotional_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Stress level identification,2,emotional_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Sensitive conversation content,0,content_privacy,False
+Emotional pattern recognition,2,emotional_privacy,True
+Speaker verification systems,0,voice_biometric,False
+Voice authentication biometric data,1,voice_biometric,True
+Speaker identification from voice patterns,1,voice_biometric,True
+Protected business communications,2,content_privacy,True
+Voice authentication biometric data,2,voice_biometric,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Mood analysis from voice tone,0,emotional_privacy,False
+Voice authentication biometric data,1,voice_biometric,True
+Emotional pattern recognition,0,emotional_privacy,False
+Confidential meeting audio,1,content_privacy,True
+Speaker verification systems,1,voice_biometric,True
+Private discussion topics,2,content_privacy,True
+Protected business communications,1,content_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Private discussion topics,0,content_privacy,False
+Emotional pattern recognition,2,emotional_privacy,True
+Emotional pattern recognition,2,emotional_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Sensitive conversation content,1,content_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Sentiment analysis from voice,1,emotional_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Sensitive conversation content,0,content_privacy,False
+Protected business communications,1,content_privacy,True
+Voice-based identity confirmation,1,voice_biometric,True
+Sensitive conversation content,1,content_privacy,True
+Protected business communications,1,content_privacy,True
+Sensitive conversation content,1,content_privacy,True
+Emotional pattern recognition,1,emotional_privacy,True
+Voice authentication biometric data,1,voice_biometric,True
+Confidential meeting audio,2,content_privacy,True
+Voice authentication biometric data,0,voice_biometric,False
+Emotional state detection from speech,1,emotional_privacy,True
+Mood analysis from voice tone,0,emotional_privacy,False
+Protected business communications,2,content_privacy,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Emotional state detection from speech,2,emotional_privacy,True
+Voice authentication biometric data,1,voice_biometric,True
+Voice authentication biometric data,1,voice_biometric,True
+Private discussion topics,2,content_privacy,True
+Stress level identification,2,emotional_privacy,True
+Emotional pattern recognition,2,emotional_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Sensitive conversation content,0,content_privacy,False
+Emotional state detection from speech,2,emotional_privacy,True
+Sentiment analysis from voice,0,emotional_privacy,False
+Mood analysis from voice tone,0,emotional_privacy,False
+Confidential meeting audio,1,content_privacy,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Personal information disclosure,2,content_privacy,True
+Private discussion topics,0,content_privacy,False
+Emotional pattern recognition,1,emotional_privacy,True
+Sensitive conversation content,1,content_privacy,True
+Voice-based identity confirmation,2,voice_biometric,True
+Voice-based identity confirmation,1,voice_biometric,True
+Emotional state detection from speech,1,emotional_privacy,True
+Private discussion topics,2,content_privacy,True
+Speaker verification systems,0,voice_biometric,False
+Confidential meeting audio,2,content_privacy,True
+Vocal fingerprint recognition,1,voice_biometric,True
+Private discussion topics,2,content_privacy,True
+Stress level identification,0,emotional_privacy,False
+Voice-based identity confirmation,2,voice_biometric,True
+Protected business communications,2,content_privacy,True
+Speaker identification from voice patterns,2,voice_biometric,True
+Mood analysis from voice tone,2,emotional_privacy,True
+Vocal fingerprint recognition,2,voice_biometric,True
+Speaker verification systems,1,voice_biometric,True
+Sentiment analysis from voice,2,emotional_privacy,True
+Private discussion topics,1,content_privacy,True
+Protected business communications,2,content_privacy,True
+Speaker verification systems,2,voice_biometric,True

@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-08-28T19:29:32.689145",
+  "results": {},
+  "summary": {
+    "total_models": 0,
+    "avg_accuracy": NaN,
+    "device_used": "cpu"
+  }
+}

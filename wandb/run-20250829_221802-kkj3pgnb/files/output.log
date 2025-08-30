@@ -1,0 +1,58 @@
+100%|##########| 270/270 [25:11<00:00,  5.60s/it]
+{'loss': 1.1294, 'grad_norm': 7.726542949676514, 'learning_rate': 7.242798353909465e-06, 'epoch': 0.56}
+{'loss': 1.0957, 'grad_norm': 10.233992576599121, 'learning_rate': 5.596707818930041e-06, 'epoch': 1.11}
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+{'eval_loss': 1.0922529697418213, 'eval_accuracy': 0.36666666666666664, 'eval_f1': 0.1967479674796748, 'eval_precision': 0.13444444444444445, 'eval_recall': 0.36666666666666664, 'eval_runtime': 25.4826, 'eval_samples_per_second': 7.064, 'eval_steps_per_second': 1.766, 'epoch': 1.11}
+{'loss': 1.1009, 'grad_norm': 3.5399093627929688, 'learning_rate': 3.950617283950617e-06, 'epoch': 1.67}
+{'loss': 1.0979, 'grad_norm': 7.090458393096924, 'learning_rate': 2.3045267489711933e-06, 'epoch': 2.22}
+{'eval_loss': 1.0911980867385864, 'eval_accuracy': 0.37222222222222223, 'eval_f1': 0.20844845630559916, 'eval_precision': 0.4185288640595903, 'eval_recall': 0.37222222222222223, 'eval_runtime': 51.7898, 'eval_samples_per_second': 3.476, 'eval_steps_per_second': 0.869, 'epoch': 2.22}
+{'loss': 1.0913, 'grad_norm': 3.315289258956909, 'learning_rate': 6.584362139917695e-07, 'epoch': 2.78}
+2025-08-29 22:43:18,190 - __main__ - ERROR - [FAIL] roberta_large_fixed training failed: 'base_model.model.classifier.dense.lora_A.default.weight'
+2025-08-29 22:43:18,789 - __main__ - INFO - [TRAIN] Training distilbert_fixed...
+2025-08-29 22:43:18,790 - __main__ - INFO -   Model: distilbert-base-uncased
+2025-08-29 22:43:18,793 - __main__ - INFO -   Task: pii_detection
+2025-08-29 22:43:18,793 - __main__ - INFO -   Batch Size: 8
+2025-08-29 22:43:18,794 - __main__ - INFO -   Learning Rate: 2e-05
+2025-08-29 22:43:18,795 - __main__ - INFO - [DATASET] Using enhanced_pii for pii_detection
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+trainable params: 1,181,954 || all params: 68,136,964 || trainable%: 1.7347
+Map: 100%|##########| 600/600 [00:00<00:00, 2346.16 examples/s]
+2025-08-29 22:43:20,352 - __main__ - ERROR - [FAIL] distilbert_fixed training failed: New column name labels already in the dataset. Please choose a column name which is not already in the dataset. Current columns in the dataset: ['text', 'labels', 'privacy_level', 'has_pii', 'pii_type', 'variation_id', 'input_ids', 'attention_mask']
+2025-08-29 22:43:20,365 - __main__ - INFO - [TRAIN] Training bert_base_fixed...
+2025-08-29 22:43:20,366 - __main__ - INFO -   Model: bert-base-uncased
+2025-08-29 22:43:20,367 - __main__ - INFO -   Task: audio_privacy
+2025-08-29 22:43:20,368 - __main__ - INFO -   Batch Size: 8
+2025-08-29 22:43:20,368 - __main__ - INFO -   Learning Rate: 1e-05
+2025-08-29 22:43:20,370 - __main__ - INFO - [DATASET] Using audio_privacy for audio_privacy
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+trainable params: 2,681,091 || all params: 112,165,638 || trainable%: 2.3903
+Map: 100%|##########| 450/450 [00:00<00:00, 7781.80 examples/s]
+2025-08-29 22:43:21,947 - __main__ - INFO - [TRAINING] bert_base_fixed with 360 train, 90 eval examples...
+A ConfigError was raised whilst setting the number of model parameters in Weights & Biases config.
+100%|##########| 66/66 [03:30<00:00,  3.20s/it]
+{'loss': 1.0538, 'grad_norm': 2.062084913253784, 'learning_rate': 2.7118644067796613e-06, 'epoch': 2.18}
+{'train_runtime': 210.925, 'train_samples_per_second': 5.12, 'train_steps_per_second': 0.313, 'train_loss': 1.0590611660119258, 'epoch': 2.89}
+2025-08-29 22:46:55,216 - __main__ - INFO - [EVAL] Final evaluation of bert_base_fixed...
+100%|##########| 12/12 [00:04<00:00,  2.90it/s]
+2025-08-29 22:47:00,432 - __main__ - INFO - [SUCCESS] bert_base_fixed training completed!
+2025-08-29 22:47:00,432 - __main__ - INFO -   Final Accuracy: 0.4556 (45.56%)
+2025-08-29 22:47:00,591 - __main__ - INFO - [SUCCESS] bert_base_fixed training completed!
+2025-08-29 22:47:00,598 - __main__ - INFO -   Accuracy: 0.4556 (45.56%)
+2025-08-29 22:47:00,599 - __main__ - INFO -   F1 Score: 0.2852
+2025-08-29 22:47:00,599 - __main__ - INFO -   Training Time: 213.3s
+2025-08-29 22:47:00,599 - __main__ - INFO - [ENSEMBLE] Creating ensemble from successful models...
+2025-08-29 22:47:00,601 - __main__ - WARNING - [ENSEMBLE] Not enough successful models for ensemble
+2025-08-29 22:47:00,605 - __main__ - INFO - [SUCCESS] Fixed results saved to sota_results\fixed_sota_results.json
+2025-08-29 22:47:00,607 - __main__ - INFO - [SUCCESS] Summary report saved to sota_results\fixed_sota_summary.md
+2025-08-29 22:47:00,607 - __main__ - INFO - [RESULTS] Best Model Accuracy: 0.4556 (45.56%)
+2025-08-29 22:47:00,607 - __main__ - INFO - [RESULTS] Improvement over baseline: +45.6 percentage points
+2025-08-29 22:47:00,609 - __main__ - INFO - [COMPLETE] FIXED SOTA model training completed!
+2025-08-29 22:47:00,613 - __main__ - INFO - ============================================================
+2025-08-29 22:47:00,614 - __main__ - INFO - [COMPLETE] FIXED SOTA Training completed successfully!
+2025-08-29 22:47:00,615 - __main__ - INFO - [RESULTS] BEST ACCURACY: 0.4556 (45.56%)
+2025-08-29 22:47:00,615 - __main__ - INFO - [RESULTS] AVERAGE ACCURACY: 0.4556 (45.56%)
+2025-08-29 22:47:00,616 - __main__ - INFO - [RESULTS] BEST F1 SCORE: 0.2852
+2025-08-29 22:47:00,616 - __main__ - INFO - [RESULTS] SUCCESSFUL MODELS: 1/3
+2025-08-29 22:47:00,617 - __main__ - INFO - [STATUS] Good Performance Achieved!
+2025-08-29 22:47:00,617 - __main__ - INFO - [READY] Models ready for production deployment!

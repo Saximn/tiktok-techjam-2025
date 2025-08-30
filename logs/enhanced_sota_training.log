@@ -1,0 +1,28 @@
+2025-08-29 22:12:30,414 - __main__ - INFO - ==========================================================================================
+2025-08-29 22:12:30,419 - __main__ - INFO - Using device: cpu
+2025-08-29 22:12:36,364 - __main__ - INFO - Creating synthetic PII dataset...
+2025-08-29 22:12:36,426 - __main__ - INFO -    PII examples: 300
+2025-08-29 22:12:36,431 - __main__ - INFO -    Non-PII examples: 300
+2025-08-29 22:12:36,836 - __main__ - INFO -    Model: microsoft/deberta-v3-large
+2025-08-29 22:12:36,836 - __main__ - INFO -    Task: classification
+2025-08-29 22:12:36,836 - __main__ - INFO -    Batch Size: 4
+2025-08-29 22:12:36,841 - __main__ - INFO -    Learning Rate: 5e-06
+2025-08-29 22:12:36,841 - __main__ - INFO - Using enhanced_pii dataset for classification
+2025-08-29 22:12:39,556 - __main__ - INFO -    Model: roberta-large
+2025-08-29 22:12:39,556 - __main__ - INFO -    Task: privacy_classification
+2025-08-29 22:12:39,556 - __main__ - INFO -    Batch Size: 6
+2025-08-29 22:12:39,556 - __main__ - INFO -    Learning Rate: 8e-06
+2025-08-29 22:12:39,556 - __main__ - INFO - Using enhanced_privacy dataset for privacy_classification
+2025-08-29 22:12:42,684 - __main__ - INFO -    Model: distilbert-base-uncased
+2025-08-29 22:12:42,684 - __main__ - INFO -    Task: pii_detection
+2025-08-29 22:12:42,684 - __main__ - INFO -    Batch Size: 16
+2025-08-29 22:12:42,684 - __main__ - INFO -    Learning Rate: 2e-05
+2025-08-29 22:12:42,685 - __main__ - INFO - Using enhanced_pii dataset for pii_detection
+2025-08-29 22:12:43,561 - __main__ - INFO -    Model: bert-base-uncased
+2025-08-29 22:12:43,563 - __main__ - INFO -    Task: audio_privacy
+2025-08-29 22:12:43,563 - __main__ - INFO -    Batch Size: 12
+2025-08-29 22:12:43,563 - __main__ - INFO -    Learning Rate: 1e-05
+2025-08-29 22:12:43,563 - __main__ - INFO - Using audio_privacy dataset for audio_privacy
+2025-08-29 22:12:45,716 - __main__ - WARNING - Not enough high-performing models for ensemble (need >75% accuracy)
+2025-08-29 22:12:45,716 - __main__ - WARNING - Still not enough models for ensemble
+2025-08-29 22:12:45,721 - __main__ - INFO - ==========================================================================================

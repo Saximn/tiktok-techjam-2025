@@ -1,0 +1,9 @@
+2025-08-28 19:28:31,089 - __main__ - INFO - ================================================================================
+2025-08-28 19:28:31,428 - __main__ - INFO - Using Kaggle API to download uwrfkaggler/ravdess-emotional-speech-audio
+2025-08-28 19:29:17,601 - __main__ - ERROR - HuggingFace download failed: Dataset 'mozilla-foundation/common_voice_16_1' is a gated dataset on the Hub. You must be authenticated to access it.
+2025-08-28 19:29:20,864 - __main__ - ERROR - HuggingFace download failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+2025-08-28 19:29:24,034 - __main__ - ERROR - HuggingFace download failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+2025-08-28 19:29:24,349 - __main__ - ERROR - HuggingFace download failed: Dataset 'microsoft/PII-Masking-200k' doesn't exist on the Hub or cannot be accessed.
+2025-08-28 19:29:31,514 - __main__ - ERROR - HuggingFace download failed: The repository for conll2003 contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/conll2003.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.
+2025-08-28 19:29:32,671 - __main__ - ERROR - HuggingFace download failed: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte

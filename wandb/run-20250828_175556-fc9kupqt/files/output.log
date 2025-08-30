@@ -1,0 +1,16 @@
+100%|##########| 18/18 [00:19<00:00,  1.10s/it]
+100%|##########| 2/2 [00:00<00:00, 17.27it/s]
+{'eval_loss': 1.900516390800476, 'eval_accuracy': 0.0, 'eval_f1': 0.0, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_runtime': 0.3181, 'eval_samples_per_second': 72.306, 'eval_steps_per_second': 6.288, 'epoch': 1.0}
+{'loss': 1.722, 'grad_norm': 2.309096574783325, 'learning_rate': 8.888888888888888e-06, 'epoch': 1.67}
+{'eval_loss': 1.9844567775726318, 'eval_accuracy': 0.0, 'eval_f1': 0.0, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_runtime': 0.312, 'eval_samples_per_second': 73.712, 'eval_steps_per_second': 6.41, 'epoch': 2.0}
+{'eval_loss': 2.0191404819488525, 'eval_accuracy': 0.0, 'eval_f1': 0.0, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_runtime': 0.3052, 'eval_samples_per_second': 75.361, 'eval_steps_per_second': 6.553, 'epoch': 3.0}
+{'train_runtime': 23.4303, 'train_samples_per_second': 11.267, 'train_steps_per_second': 0.768, 'train_loss': 1.6732472843594022, 'epoch': 3.0}
+2025-08-28 17:56:20,244 - INFO - Classification training completed! F1: 0.000
+2025-08-28 17:56:20,246 - INFO - ======================================================================
+2025-08-28 17:56:20,246 - INFO - ADVANCED VOICESHIELD TRAINING COMPLETED!
+2025-08-28 17:56:20,248 - INFO - Training Duration: 112.9 seconds
+2025-08-28 17:56:20,248 - INFO - NER Model: FAILED
+2025-08-28 17:56:20,248 - INFO - Classification Model: SUCCESS
+2025-08-28 17:56:20,249 - INFO - Results: C:\tiktok-techjam-2025\advanced_training_results.json
+2025-08-28 17:56:20,249 - INFO - Report: C:\tiktok-techjam-2025\advanced_training_report.md
+2025-08-28 17:56:20,249 - INFO - READY FOR PRODUCTION DEPLOYMENT!

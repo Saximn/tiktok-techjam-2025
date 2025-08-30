@@ -1,0 +1,598 @@
+/* VoiceShield Dashboard - TikTok TechJam 2025 */
+/* Modern Lynx-inspired UI with real-time audio privacy visualization */
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --dark-bg: #0f0f23;
+  --panel-bg: rgba(255, 255, 255, 0.05);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --privacy-gradient: conic-gradient(from 0deg, #10b981 0deg, #6366f1 180deg, #8b5cf6 360deg);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a3a 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.voiceshield-dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Header */
+.dashboard-header {
+  text-align: center;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: 1.1em;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  flex: 1;
+}
+
+/* Panel Base Styles */
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.panel:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.panel:hover::before {
+  opacity: 1;
+}
+
+.panel h2, .panel h3 {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Main Privacy Shield */
+.main-shield {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.privacy-shield {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--privacy-gradient);
+  transition: all 0.5s ease;
+  animation: pulse 2s infinite;
+}
+
+.privacy-shield.active {
+  box-shadow: 0 0 50px rgba(99, 102, 241, 0.5);
+  animation: protectionPulse 1.5s infinite;
+}
+
+.shield-center {
+  background: var(--dark-bg);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.protection-level {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+.status {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes protectionPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 50px rgba(99, 102, 241, 0.5);
+  }
+  50% { 
+    transform: scale(1.02);
+    box-shadow: 0 0 80px rgba(99, 102, 241, 0.8);
+  }
+}
+
+/* Privacy Controls */
+.privacy-controls {
+  margin-top: 24px;
+}
+
+.privacy-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.privacy-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.mode-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85em;
+}
+
+.mode-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+}
+
+.mode-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Audio Visualizer */
+.audio-viz {
+  grid-column: span 1;
+}
+
+.audio-visualizer {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.main-visualizer svg {
+  width: 100%;
+  height: 60px;
+}
+
+.audio-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* TikTok Live */
+.tiktok-live {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(138, 43, 226, 0.1));
+  border-color: rgba(255, 20, 147, 0.3);
+}
+
+.live-stats {
+  text-align: center;
+}
+
+.viewer-count {
+  font-size: 1.5em;
+  color: var(--success-color);
+  margin-bottom: 8px;
+}
+
+.stream-status {
+  color: var(--danger-color);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.stream-metrics {
+  display: flex;
+  justify-content: space-around;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.stream-controls {
+  text-align: center;
+}
+
+.stream-controls p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Performance Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.metric {
+  text-align: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metric-value {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--success-color);
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+}
+
+/* Privacy Alerts */
+.alerts-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.no-alerts {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 20px;
+}
+
+.alert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  animation: alertFadeIn 0.5s ease;
+}
+
+@keyframes alertFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-type {
+  font-weight: 600;
+  color: var(--danger-color);
+}
+
+.alert-time {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+}
+
+/* SOTA Models Status */
+.models-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.model-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.model-name {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+.model-indicator {
+  font-size: 1.2em;
+}
+
+/* Lynx Button Component */
+.lynx-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.lynx-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.lynx-button:hover::before {
+  left: 100%;
+}
+
+.lynx-button.primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.lynx-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid var(--panel-border);
+}
+
+.lynx-button.danger {
+  background: linear-gradient(135deg, var(--danger-color), #dc2626);
+  color: white;
+}
+
+.lynx-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lynx-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Control Panel */
+.control-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--success-color);
+  box-shadow: 0 0 12px var(--success-color);
+  animation: indicatorPulse 1.5s infinite;
+}
+
+.indicator.inactive {
+  background: var(--text-secondary);
+}
+
+@keyframes indicatorPulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  border-top: 1px solid var(--panel-border);
+}
+
+.dashboard-footer p {
+  margin: 4px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .main-shield {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .voiceshield-dashboard {
+    padding: 10px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2em;
+  }
+  
+  .privacy-shield {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .shield-center {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .protection-level {
+    font-size: 2em;
+  }
+  
+  .control-panel {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loading and Animation States */
+.loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Focus and Accessibility */
+.lynx-button:focus,
+.privacy-slider:focus,
+.mode-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .voiceshield-dashboard {
+    background: white;
+    color: black;
+  }
+  
+  .panel {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "best_metric": 1.900516390800476,
+  "best_model_checkpoint": "C:\\tiktok-techjam-2025\\classification_model_output\\checkpoint-6",
+  "epoch": 2.0,
+  "eval_steps": 500,
+  "global_step": 12,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.0,
+      "eval_f1": 0.0,
+      "eval_loss": 1.900516390800476,
+      "eval_precision": 0.0,
+      "eval_recall": 0.0,
+      "eval_runtime": 0.3181,
+      "eval_samples_per_second": 72.306,
+      "eval_steps_per_second": 6.288,
+      "step": 6
+    },
+    {
+      "epoch": 1.6666666666666665,
+      "grad_norm": 2.309096574783325,
+      "learning_rate": 8.888888888888888e-06,
+      "loss": 1.722,
+      "step": 10
+    },
+    {
+      "epoch": 2.0,
+      "eval_accuracy": 0.0,
+      "eval_f1": 0.0,
+      "eval_loss": 1.9844567775726318,
+      "eval_precision": 0.0,
+      "eval_recall": 0.0,
+      "eval_runtime": 0.312,
+      "eval_samples_per_second": 73.712,
+      "eval_steps_per_second": 6.41,
+      "step": 12
+    }
+  ],
+  "logging_steps": 10,
+  "max_steps": 18,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 3,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": false
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 637544831616.0,
+  "train_batch_size": 16,
+  "trial_name": null,
+  "trial_params": null
+}
