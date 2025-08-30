@@ -364,23 +364,13 @@ export default function Viewer() {
           
           {isMuted && streamAvailable && (
             <div 
-              className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-75 cursor-pointer z-10"
+              className="absolute bottom-4 right-4 bg-black bg-opacity-75 text-white p-3 rounded-lg cursor-pointer z-10 hover:bg-opacity-90 transition-all duration-200"
               onClick={handleUnmute}
             >
-              <div className="text-center bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-600">
-                <div className="text-6xl mb-4">🔊</div>
-                <div className="text-xl font-semibold mb-2">Click to Unmute</div>
-                <div className="text-sm opacity-75">Stream starts muted - click to enable audio</div>
+              <div className="flex items-center space-x-2">
+                <div className="text-2xl">🔊</div>
+                <div className="text-sm font-medium">Unmute</div>
               </div>
-            </div>
-          )}
-          
-          {/* Debug info - remove after testing */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs p-2 rounded">
-              <div>isMuted: {isMuted.toString()}</div>
-              <div>streamAvailable: {streamAvailable.toString()}</div>
-              <div>connectionState: {connectionState}</div>
             </div>
           )}
           
