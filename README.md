@@ -102,15 +102,6 @@ Note: it requires a teacher model to be distlled with. We used the best of multi
 
 ## Livestream PII Detection Pipeline
 
-### Pipeline Features
-
-- **Real-time Audio Transcription**: Uses OpenAI Whisper (large-v3 model) for high-accuracy speech-to-text
-- **PII Detection & Redaction**: Leverages trained custom ensemble (DeBERTa) models to detect and redact personally identifiable information
-- **Video Blur Instructions**: Generates precise timestamps and frame numbers for video blurring when PII is detected
-- **Modular Design**: Easy integration with existing livestream systems and other AI models
-- **Asynchronous Processing**: Supports both synchronous and asynchronous processing modes
-- **Performance Monitoring**: Built-in statistics and monitoring capabilities
-
 ### Pipeline Setup
 
 1. **Install Dependencies**:
@@ -122,5 +113,5 @@ Note: it requires a teacher model to be distlled with. We used the best of multi
    Edit `configs/pipeline_config.yaml` to match your hardware and requirements.
 
 
-### License 
+## License 
 Under MIT License.
