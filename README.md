@@ -1,6 +1,6 @@
-# VoiceShield - Real-Time AI Voice Privacy Protection
+# AI Voice Privacy Protection
 
-🛡️ **Revolutionary real-time voice privacy system that protects voice biometrics, emotional patterns, and spoken PII while maintaining natural conversation flow.**
+**Real-time voice privacy system that protects voice biometrics, emotional patterns, and spoken PII while maintaining natural conversation flow.**
 
 ## 🚀 Core Features
 
