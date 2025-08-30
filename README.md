@@ -66,6 +66,7 @@ This project uses the following datasets from Kaggle:
 We gratefully acknowledge the dataset authors for making their data publicly available for research purposes.
 
 ## Training
+<img width="1327" height="918" alt="image" src="https://github.com/user-attachments/assets/7ee1481f-3967-462d-9c9f-b9b0604f2289" />
 
 Our solution involves five Deberta-v3-large models, incorporating different architectures for diversity and performance. Below are some variants and their training commands:
 
