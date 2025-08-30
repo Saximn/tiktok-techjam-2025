@@ -52,6 +52,7 @@ Our approach employs an ensemble of five diverse DeBERTa-v3-large models, each i
 - **Token-level Augmentation:** Maintains NER structure while increasing variety
 
 ## Results and Performance
+<img width="1318" height="915" alt="image" src="https://github.com/user-attachments/assets/6462d5e0-ff93-496a-be5a-bfb18aee19c2" />
 
 ### Final Competition Results
 - **Accuracy Score:** 0.96988
