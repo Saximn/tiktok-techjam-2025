@@ -2,17 +2,11 @@
 
 ## Project Overview
 
-This project implements the winning solution for The Learning Agency Lab's PII (Personally Identifiable Information) Data Detection Competition on Kaggle. The objective was to develop automated techniques to detect and remove PII from educational data, which will support learning science research and the development of educational tools.
-
-## Competition Context
-
-**Competition Name:** The Learning Agency Lab - PII Data Detection  
-**Objective:** Develop automated techniques to detect and remove PII from educational data  
-**Impact:** Lower the cost of releasing educational datasets and enable researchers to tap into large public educational datasets
+This project implements the solution for Tiktok Techjam 2025. The objective was to develop automated techniques to detect and remove PII from Tiktok videos. 
 
 ## Solution Architecture
 
-Our winning approach employs an ensemble of five diverse DeBERTa-v3-large models, each incorporating different architectural modifications to maximize performance and diversity:
+Our approach employs an ensemble of five diverse DeBERTa-v3-large models, each incorporating different architectural modifications to maximize performance and diversity:
 
 ### Model Components
 
@@ -42,20 +36,6 @@ Our winning approach employs an ensemble of five diverse DeBERTa-v3-large models
    - Improves detection of various name patterns
    - Training command: `python train_exp076.py`
 
-## Technical Infrastructure
-
-### Hardware Requirements
-- **Instance:** Ubuntu 20.04.5 LTS (128 GB boot disk)
-- **CPU:** Intel(R) Xeon(R) Silver 4216 @ 2.10GHz (7 vCPUs)
-- **GPU:** 8 x NVIDIA A100 40GB
-- **Python:** 3.10.13
-- **CUDA:** 12.1
-
-### Key Technologies
-- **Base Model:** DeBERTa-v3-large
-- **Framework:** PyTorch/Transformers
-- **Task Type:** Named Entity Recognition (NER)
-- **Ensemble Method:** Diverse architecture ensemble
 
 ## Data Processing Strategy
 
@@ -88,7 +68,7 @@ The solution utilized multiple data sources for comprehensive training:
 
 #### Enhanced Datasets (Key Contributors)
 - **TonyaRobertson Public Data:** High-quality external dataset
-- **Custom 2k Generated Dataset:** Synthetically generated data for improved diversity
+- **Custom 2k Generated Dataset:** Synthetically generated data for improved diversity (specific to real-life context Tiktok videos)
 
 ### Individual Model Performance
 
@@ -171,7 +151,7 @@ The solution successfully identifies 15 categories of personally identifiable in
 ### Performance Analysis
 
 #### Strengths
-- **High Accuracy:** 0.96988 private leaderboard score
+- **High Accuracy:** 0.96988 
 - **Model Diversity:** 7 different architectural approaches
 - **Data Utilization:** Effective use of multiple external datasets
 - **Ensemble Optimization:** Sophisticated voting mechanism
@@ -219,19 +199,11 @@ sh ./setup_datasets.sh
 ```
 
 ### Inference Process
-- Detailed inference notebook available on Kaggle
+- Detailed inference notebook
 - Processes test data through all five models
 - Applies ensemble logic for final predictions
 - Includes post-processing for optimal results
 
-## Project Structure Analysis
-
-The current implementation includes:
-- **Training Scripts:** Individual model training implementations
-- **Model Architectures:** Custom DeBERTa variants (BiLSTM, Multi-Dropout)
-- **Configuration:** Model and training parameters
-- **Setup Scripts:** Data preparation and environment setup
-- **Source Code:** Core implementation modules
 
 ## Key Innovations
 
