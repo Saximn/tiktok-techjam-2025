@@ -17,9 +17,8 @@ This repository contains the code and configurations for our solution in the **P
 
 ### Hardware
 
-- **Instance:** Ubuntu 20.04.5 LTS (128 GB boot disk)
-- **CPU:** Intel(R) Xeon(R) Silver 4216 @ 2.10GHz (7 vCPUs)
-- **GPU:** 8 x NVIDIA A100 40GB
+- **CPU:** Intel(R) Core i7
+- **GPU:** NVIDIA A100 40GB
 
 
 ### Software
