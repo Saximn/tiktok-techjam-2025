@@ -47,6 +47,27 @@ sh ./setup_datasets.sh
 
 Note: The script creates a `data` folder in the parent directory and downloads external datasets there.
 
+#### Dataset Attribution
+
+This project uses the following datasets from Kaggle:
+
+1. **PII 1st Solution Datasets** 
+   - Dataset: `ympaik/pii-1st-solution-datasets`
+   - Author: ympaik
+   - URL: https://www.kaggle.com/datasets/ympaik/pii-1st-solution-datasets
+
+2. **PII DD Mistral Generated**
+   - Dataset: `nbroad/pii-dd-mistral-generated`  
+   - Author: nbroad
+   - URL: https://www.kaggle.com/datasets/nbroad/pii-dd-mistral-generated
+
+3. **PII Mixtral8x7B Generated Essays**
+   - Dataset: `mpware/pii-mixtral8x7b-generated-essays`
+   - Author: mpware  
+   - URL: https://www.kaggle.com/datasets/mpware/pii-mixtral8x7b-generated-essays
+
+We gratefully acknowledge the dataset authors for making their data publicly available for research purposes.
+
 ## Training
 
 Our solution involves five Deberta-v3-large models, incorporating different architectures for diversity and performance. Below are some variants and their training commands:
@@ -81,3 +102,28 @@ Note: it requires a teacher model to be distlled with. We used the best of multi
     ```shell
     python train_exp076.py
     ```
+
+## Livestream PII Detection Pipeline
+
+### Pipeline Features
+
+- **Real-time Audio Transcription**: Uses OpenAI Whisper (large-v3 model) for high-accuracy speech-to-text
+- **PII Detection & Redaction**: Leverages trained custom ensemble (DeBERTa) models to detect and redact personally identifiable information
+- **Video Blur Instructions**: Generates precise timestamps and frame numbers for video blurring when PII is detected
+- **Modular Design**: Easy integration with existing livestream systems and other AI models
+- **Asynchronous Processing**: Supports both synchronous and asynchronous processing modes
+- **Performance Monitoring**: Built-in statistics and monitoring capabilities
+
+### Pipeline Setup
+
+1. **Install Dependencies**:
+   ```shell
+   python setup_pipeline.py
+   ```
+
+2. **Configure Pipeline**:
+   Edit `configs/pipeline_config.yaml` to match your hardware and requirements.
+
+
+### License 
+Under MIT License.

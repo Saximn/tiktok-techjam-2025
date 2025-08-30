@@ -12,3 +12,17 @@ torch==2.2.0
 tqdm==4.66.4
 transformers==4.40.0
 
+# Pipeline dependencies
+openai-whisper>=20231117
+ffmpeg-python>=0.2.0
+librosa>=0.10.0
+soundfile>=0.12.1
+pyaudio>=0.2.11
+asyncio>=3.4.3
+threading
+queue
+time
+typing
+dataclasses
+json
+
