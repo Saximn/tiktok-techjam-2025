@@ -16,8 +16,6 @@ This repository contains the code and configurations for our solution in the **P
 ## Setup
 
 ### Hardware
-
-- **CPU:** Intel(R) Core i7
 - **GPU:** NVIDIA A100 40GB
 
 
