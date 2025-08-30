@@ -15,6 +15,8 @@ export default function Viewer() {
   const [connectionState, setConnectionState] = useState('connecting')
   const [streamAvailable, setStreamAvailable] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
+  const [piiDetectionActive, setPiiDetectionActive] = useState(false)
+  const [recentPIIAlert, setRecentPIIAlert] = useState<string | null>(null)
 
   const videoRef = useRef<HTMLVideoElement>(null)
   const socketRef = useRef<SocketManager | null>(null)
@@ -96,6 +98,7 @@ export default function Viewer() {
         // Set up SFU event handlers BEFORE joining to catch producer notifications
         console.log('🔵 [VIEWER] === STEP 6: Setting up SFU event handlers')
         setupSFUEventHandlers()
+        setupEventHandlers() // Add PII detection event handlers
         console.log('🔵 [VIEWER] === STEP 6 SUCCESS: SFU event handlers set up')
 
         // Join room in SFU server (will trigger immediate producer notifications)
@@ -244,6 +247,29 @@ export default function Viewer() {
       }
     };
 
+    const setupEventHandlers = () => {
+      if (!socketRef.current) return
+
+      // Set up PII detection event handlers
+      socketRef.current.onPIIDetected((data) => {
+        console.log('PII detected in stream:', data.entities)
+        setRecentPIIAlert(`Sensitive content detected and redacted (${data.entities.length} items)`)
+        
+        // Clear the alert after 5 seconds
+        setTimeout(() => {
+          setRecentPIIAlert(null)
+        }, 5000)
+      })
+
+      socketRef.current.onAudioProcessingStarted(() => {
+        setPiiDetectionActive(true)
+      })
+
+      socketRef.current.onAudioProcessingStopped(() => {
+        setPiiDetectionActive(false)
+      })
+    };
+
     const setupSFUEventHandlers = () => {
       if (!sfuSocketRef.current || !mediasoupClientRef.current) return
 
@@ -332,7 +358,7 @@ export default function Viewer() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div className="bg-gray-100 p-4 rounded-lg">
               <h3 className="font-semibold text-gray-700 mb-2">Room ID</h3>
               <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono">
@@ -347,11 +373,32 @@ export default function Viewer() {
                 {getConnectionStatusText()}
               </div>
             </div>
+
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <h3 className="font-semibold text-gray-700 mb-2">Privacy Protection</h3>
+              <div className="text-sm">
+                <div className={`inline-block w-2 h-2 rounded-full mr-2 ${
+                  piiDetectionActive ? 'bg-green-500' : 'bg-gray-400'
+                }`} />
+                {piiDetectionActive ? 'Active' : 'Inactive'}
+              </div>
+            </div>
           </div>
+
+          {/* PII Alert */}
+          {recentPIIAlert && (
+            <div className="bg-blue-100 border border-blue-300 text-blue-800 px-4 py-3 rounded mb-4">
+              <div className="flex items-center">
+                <span className="text-blue-600 mr-2">🛡️</span>
+                {recentPIIAlert}
+              </div>
+            </div>
+          )}
 
           <div className="text-sm text-gray-600 text-center">
             <p><strong>SFU Mode:</strong> Optimized streaming via Mediasoup server</p>
             <p>Low latency, high quality viewing experience</p>
+            <p><strong>Privacy Protected:</strong> Sensitive content automatically redacted</p>
           </div>
         </div>
 
