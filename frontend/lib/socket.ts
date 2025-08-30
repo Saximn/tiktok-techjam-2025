@@ -17,20 +17,20 @@ export class SocketManager {
     })
   }
 
-  createRoom(): Promise<string> {
+  createRoom(): Promise<{ roomId: string; mediasoupUrl?: string }> {
     return new Promise((resolve) => {
       this.socket.emit('create_room')
       this.socket.on('room_created', (data) => {
-        resolve(data.roomId)
+        resolve(data)
       })
     })
   }
 
-  joinRoom(roomId: string): Promise<void> {
+  joinRoom(roomId: string): Promise<{ roomId: string; mediasoupUrl?: string }> {
     return new Promise((resolve, reject) => {
       this.socket.emit('join_room', { roomId })
-      this.socket.on('joined_room', () => {
-        resolve()
+      this.socket.on('joined_room', (data) => {
+        resolve(data)
       })
       this.socket.on('error', (error) => {
         reject(error.message)
@@ -71,16 +71,24 @@ export class SocketManager {
     this.socket.on('ice_candidate', callback)
   }
 
-  onViewerJoined(callback: (data: { userId: string }) => void) {
+  onViewerJoined(callback: (data: { userId: string; viewerCount?: number }) => void) {
     this.socket.on('viewer_joined', callback)
   }
 
-  onViewerLeft(callback: (data: { userId: string }) => void) {
+  onViewerLeft(callback: (data: { userId: string; viewerCount?: number }) => void) {
     this.socket.on('viewer_left', callback)
   }
 
   onHostDisconnected(callback: () => void) {
     this.socket.on('host_disconnected', callback)
+  }
+
+  onStreamingStarted(callback: () => void) {
+    this.socket.on('streaming_started', callback)
+  }
+
+  onStreamingStopped(callback: () => void) {
+    this.socket.on('streaming_stopped', callback)
   }
 
   disconnect() {

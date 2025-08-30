@@ -2,11 +2,15 @@ from flask import Flask, request
 from flask_socketio import SocketIO, emit, join_room, leave_room
 from flask_cors import CORS
 import uuid
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 CORS(app, origins="*")
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading', logger=True, engineio_logger=True)
+
+# Configuration for Mediasoup server
+MEDIASOUP_SERVER_URL = 'http://localhost:3001'
 
 rooms = {}
 users = {}
@@ -52,14 +56,15 @@ def handle_create_room():
     
     rooms[room_id] = {
         'host': request.sid,
-        'viewers': []
+        'viewers': [],
+        'sfu_ready': False
     }
     
     users[request.sid]['role'] = 'host'
     users[request.sid]['room'] = room_id
     
-    emit('room_created', {'roomId': room_id})
-    print(f'Room {room_id} created')
+    emit('room_created', {'roomId': room_id, 'mediasoupUrl': MEDIASOUP_SERVER_URL})
+    print(f'Room {room_id} created with SFU support')
 
 @socketio.on('join_room')
 def handle_join_room(data):
@@ -74,76 +79,32 @@ def handle_join_room(data):
     users[request.sid]['role'] = 'viewer'
     users[request.sid]['room'] = room_id
     
-    emit('joined_room', {'roomId': room_id})
-    socketio.emit('viewer_joined', {'userId': users[request.sid]['id']}, room=room_id)
-    print(f'User joined room {room_id}')
+    emit('joined_room', {'roomId': room_id, 'mediasoupUrl': MEDIASOUP_SERVER_URL})
+    
+    # If streaming is already active, notify the new viewer
+    if rooms[room_id].get('sfu_ready', False):
+        emit('streaming_started', {'roomId': room_id})
+        print(f'Notified new viewer about active streaming in room {room_id}')
+    
+    socketio.emit('viewer_joined', {'userId': users[request.sid]['id'], 'viewerCount': len(rooms[room_id]['viewers'])}, room=room_id)
+    print(f'User joined room {room_id} with SFU support')
 
-@socketio.on('offer')
-def handle_offer(data):
+# SFU-related event handlers (WebRTC signaling now handled by Mediasoup server)
+@socketio.on('sfu_streaming_started')
+def handle_sfu_streaming_started(data):
     room_id = users[request.sid]['room']
     if room_id and users[request.sid]['role'] == 'host':
-        # Send offer to specific viewer if specified, otherwise to the most recent viewer
-        target_viewer = data.get('to')
-        if target_viewer:
-            # Send to specific viewer
-            for viewer_sid in rooms[room_id]['viewers']:
-                if users[viewer_sid]['id'] == target_viewer:
-                    socketio.emit('offer', {
-                        'offer': data['offer'],
-                        'from': users[request.sid]['id']
-                    }, room=viewer_sid)
-                    break
-        else:
-            # Send to most recent viewer (last one in the list)
-            if rooms[room_id]['viewers']:
-                latest_viewer_sid = rooms[room_id]['viewers'][-1]
-                socketio.emit('offer', {
-                    'offer': data['offer'],
-                    'from': users[request.sid]['id']
-                }, room=latest_viewer_sid)
+        rooms[room_id]['sfu_ready'] = True
+        socketio.emit('streaming_started', {'roomId': room_id}, room=room_id)
+        print(f'SFU streaming started for room {room_id}')
 
-@socketio.on('answer')
-def handle_answer(data):
+@socketio.on('sfu_streaming_stopped')
+def handle_sfu_streaming_stopped(data):
     room_id = users[request.sid]['room']
-    if room_id and users[request.sid]['role'] == 'viewer':
-        # Send answer back to host
-        host_sid = rooms[room_id]['host']
-        socketio.emit('answer', {
-            'answer': data['answer'],
-            'from': users[request.sid]['id']
-        }, room=host_sid)
-
-@socketio.on('ice_candidate')
-def handle_ice_candidate(data):
-    room_id = users[request.sid]['room']
-    if room_id:
-        # Send ICE candidate to the appropriate peer
-        if users[request.sid]['role'] == 'host':
-            # Send to specific viewer if specified
-            target_viewer = data.get('to')
-            if target_viewer:
-                # Send to specific viewer
-                for viewer_sid in rooms[room_id]['viewers']:
-                    if users[viewer_sid]['id'] == target_viewer:
-                        socketio.emit('ice_candidate', {
-                            'candidate': data['candidate'],
-                            'from': users[request.sid]['id']
-                        }, room=viewer_sid)
-                        break
-            else:
-                # Send to all viewers (fallback)
-                for viewer_sid in rooms[room_id]['viewers']:
-                    socketio.emit('ice_candidate', {
-                        'candidate': data['candidate'],
-                        'from': users[request.sid]['id']
-                    }, room=viewer_sid)
-        else:
-            # Send to host
-            host_sid = rooms[room_id]['host']
-            socketio.emit('ice_candidate', {
-                'candidate': data['candidate'],
-                'from': users[request.sid]['id']
-            }, room=host_sid)
+    if room_id and users[request.sid]['role'] == 'host':
+        rooms[room_id]['sfu_ready'] = False
+        socketio.emit('streaming_stopped', {'roomId': room_id}, room=room_id)
+        print(f'SFU streaming stopped for room {room_id}')
 
 @socketio.on('get_room_info')
 def handle_get_room_info(data):
