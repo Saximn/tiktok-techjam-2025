@@ -27,9 +27,30 @@ export default function Viewer() {
   const handleUnmute = async () => {
     if (videoRef.current) {
       try {
+        console.log('🔊 [VIEWER] Attempting to unmute...')
+        console.log('🔊 [VIEWER] Current srcObject:', videoRef.current.srcObject)
+        
+        if (videoRef.current.srcObject) {
+          const stream = videoRef.current.srcObject as MediaStream
+          console.log('🔊 [VIEWER] Audio tracks in stream:', stream.getAudioTracks().length)
+          console.log('🔊 [VIEWER] Video tracks in stream:', stream.getVideoTracks().length)
+          
+          stream.getAudioTracks().forEach((track, index) => {
+            console.log(`🔊 [VIEWER] Audio track ${index}:`, {
+              id: track.id,
+              kind: track.kind,
+              enabled: track.enabled,
+              muted: track.muted,
+              readyState: track.readyState
+            })
+          })
+        }
+        
         videoRef.current.muted = false
         setIsMuted(false)
-        console.log('Video unmuted by user')
+        console.log('🔊 [VIEWER] Video element unmuted successfully')
+        console.log('🔊 [VIEWER] Video element muted property:', videoRef.current.muted)
+        console.log('🔊 [VIEWER] Video element volume:', videoRef.current.volume)
       } catch (error) {
         console.error('Failed to unmute video:', error)
       }
@@ -179,36 +200,35 @@ export default function Viewer() {
           if (stream) {
             consumersRef.current.add(producerId)
             
-            // Add stream to our collection
+            // Store the stream in our collection
             remoteStreamsRef.current.set(producerId, stream)
+            console.log(`🔵 [VIEWER] Stored ${kind} stream:`, producerId)
             
-            // If this is video, display it
-            if (kind === 'video' && videoRef.current) {
-              videoRef.current.srcObject = stream
-              console.log('Video stream attached to video element')
-            }
+            // Update the video element with combined streams
+            updateVideoElement()
             
-            // If this is audio, create audio element or add to existing stream
-            if (kind === 'audio') {
-              // If we already have a video stream, add audio track to it
-              const existingVideoStream = Array.from(remoteStreamsRef.current.values())
-                .find(s => s.getVideoTracks().length > 0)
+            function updateVideoElement() {
+              if (!videoRef.current) return
               
-              if (existingVideoStream) {
-                stream.getAudioTracks().forEach(track => {
-                  existingVideoStream.addTrack(track)
-                })
-                if (videoRef.current) {
-                  videoRef.current.srcObject = existingVideoStream
-                }
-              } else {
-                // Create new MediaStream with audio
-                const audioOnlyStream = new MediaStream(stream.getAudioTracks())
-                if (videoRef.current) {
-                  videoRef.current.srcObject = audioOnlyStream
-                }
-              }
-              console.log('Audio stream processed')
+              const allStreams = Array.from(remoteStreamsRef.current.values())
+              const videoTracks: MediaStreamTrack[] = []
+              const audioTracks: MediaStreamTrack[] = []
+              
+              // Collect all video and audio tracks
+              allStreams.forEach(stream => {
+                videoTracks.push(...stream.getVideoTracks())
+                audioTracks.push(...stream.getAudioTracks())
+              })
+              
+              console.log('🔵 [VIEWER] Creating combined stream with:')
+              console.log('🔵 [VIEWER] - Video tracks:', videoTracks.length)
+              console.log('🔵 [VIEWER] - Audio tracks:', audioTracks.length)
+              
+              // Create combined stream
+              const combinedStream = new MediaStream([...videoTracks, ...audioTracks])
+              videoRef.current.srcObject = combinedStream
+              
+              console.log('🔵 [VIEWER] Combined stream created and attached to video element')
             }
           }
         } catch (consumeError) {
