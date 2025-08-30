@@ -213,20 +213,6 @@ sh ./setup_datasets.sh
 4. **Ensemble Strategy:** Combines strengths of different approaches
 5. **NaN Prevention:** Specific initialization strategies for stable training
 
-## Business Impact
-
-### Educational Data Privacy
-- Enables automated PII removal from educational datasets
-- Reduces manual review costs and time
-- Supports large-scale learning science research
-- Facilitates development of educational tools
-
-### Technical Contributions
-- Demonstrates effectiveness of ensemble approaches for NER
-- Shows value of architectural diversity in transformer models
-- Provides robust solution for privacy-critical applications
-- Sets benchmark for PII detection in educational contexts
-
 ## Future Enhancements
 
 ### Potential Improvements
@@ -244,7 +230,7 @@ sh ./setup_datasets.sh
 
 ## Conclusion
 
-This solution demonstrates the power of ensemble learning with diverse DeBERTa architectures for PII detection in educational data. The combination of architectural variants, strategic data augmentation, and knowledge distillation creates a robust system capable of accurately identifying personal information while maintaining high performance across various text types.
+This solution demonstrates the power of ensemble learning with diverse DeBERTa architectures for PII detection in Tiktok videos. The combination of architectural variants, strategic data augmentation, and knowledge distillation creates a robust system capable of accurately identifying personal information while maintaining high performance across various text types.
 
 The solution's success validates the approach of using multiple model variations rather than relying on a single architecture, providing both improved accuracy and enhanced robustness for real-world applications in educational data privacy protection.
 
