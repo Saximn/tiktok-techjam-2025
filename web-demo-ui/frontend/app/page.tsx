@@ -16,8 +16,12 @@ export default function Home() {
   const [roomId, setRoomId] = useState("");
   const router = useRouter();
 
-  const createRoom = () => {
-    router.push("/host");
+  // const createRoom = () => {
+  //   router.push("/host");
+  // };
+
+  const enrollmentPage = () => {
+    router.push("/enrollment");
   };
 
   const joinRoom = () => {
@@ -27,20 +31,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
-      {/* Header */}
-      <header className="border-b bg-white dark:bg-black">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold text-black dark:text-white">
-                PrivaStream
-              </h1>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div>
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Section */}
@@ -106,7 +97,7 @@ export default function Home() {
                       <Button
                         size="lg"
                         className="w-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                        onClick={createRoom}
+                        onClick={enrollmentPage}
                       >
                         Go Live Now
                         <svg
@@ -252,13 +243,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t bg-white dark:bg-black mt-16">
-        <div className="container mx-auto px-4 py-8 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>© 2025 Blueberry Jam. Built for TikTok TechJam 2025.</p>
-        </div>
-      </footer>
     </div>
   );
 }

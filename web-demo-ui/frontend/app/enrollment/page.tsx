@@ -78,25 +78,6 @@ export default function EnrollmentPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
-      {/* Header */}
-      <header className="border-b bg-white dark:bg-black">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold text-black dark:text-white">
-                VirtualSecure
-              </h1>
-            </div>
-            <Badge
-              variant="outline"
-              className="text-sm border-black text-black dark:border-white dark:text-white"
-            >
-              Enrollment
-            </Badge>
-          </div>
-        </div>
-      </header>
-
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Progress Indicator */}
