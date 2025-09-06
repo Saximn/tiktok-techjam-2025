@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/form";
 import { CameraCapture } from "@/components/enrollment/cameracapture";
 import { FacePreview } from "@/components/enrollment/facepreview";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -38,6 +39,7 @@ const formSchema = z.object({
 });
 
 export default function EnrollmentPage() {
+  const router = useRouter();
   const [enrollmentStep, setEnrollmentStep] = useState<
     "intro" | "capture" | "form" | "preview" | "complete"
   >("intro");
@@ -54,13 +56,13 @@ export default function EnrollmentPage() {
   // Mock data for face preview
   const mockFaces = [
     {
-      id: "1",
+      id: "2",
       name: "John Doe",
       image: "/placeholder-avatar.jpg",
       whitelisted: true,
     },
     {
-      id: "2",
+      id: "3",
       name: "Unknown User",
       image: "/placeholder-avatar.jpg",
       whitelisted: false,
@@ -74,6 +76,10 @@ export default function EnrollmentPage() {
 
   const handleComplete = () => {
     setEnrollmentStep("complete");
+  };
+
+  const createRoom = () => {
+    router.push("/host");
   };
 
   return (
@@ -193,7 +199,7 @@ export default function EnrollmentPage() {
                   </div>
                 </div>
 
-                <div className="p-4 bg-black dark:bg-white rounded-lg border border-gray-200 dark:border-gray-700 max-w-2xl mx-auto">
+                <div className="p-4 bg-black dark:bg-white rounded-lg border border-gray-200 dark:border-gray-700 max-w mx-auto">
                   <p className="text-sm text-white dark:text-black">
                     <span className="font-semibold">Secure & Private:</span> All
                     facial data is encrypted and processed locally. Your
@@ -380,14 +386,14 @@ export default function EnrollmentPage() {
                     <div>
                       <FacePreview
                         faces={[
-                          ...mockFaces,
                           {
-                            id: "3",
+                            id: "1",
                             name: form.getValues("fullName"),
                             image:
                               capturedPhotos[0] || "/placeholder-avatar.jpg",
                             whitelisted: true,
                           },
+                          ...mockFaces,
                         ]}
                       />
                     </div>
@@ -414,7 +420,7 @@ export default function EnrollmentPage() {
 
           {/* Complete Step */}
           {enrollmentStep === "complete" && (
-            <Card className="text-center shadow-xl border border-gray-200 dark:border-gray-700">
+            <Card className="flex flex-col h-[700px] shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
               <CardHeader className="pb-4">
                 <div className="mx-auto mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">
                   <div className="h-8 w-8 bg-black dark:bg-white rounded-full flex items-center justify-center">
@@ -423,7 +429,7 @@ export default function EnrollmentPage() {
                     </span>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-black dark:text-white">
+                <CardTitle className="flex items-center justify-center gap-2 text-black dark:text-white">
                   Enrollment Complete!
                 </CardTitle>
                 <CardDescription className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -431,37 +437,52 @@ export default function EnrollmentPage() {
                   now start streaming with face recognition enabled.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                  <h3 className="font-semibold text-black dark:text-white mb-2">
+              <CardContent className="flex-1 flex flex-col justify-center">
+                <div className="p-10 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 max-w-2xl mx-auto w-full">
+                  <h3 className="font-semibold text-black dark:text-white mb-6 text-center text-xl">
                     What&apos;s Next?
                   </h3>
-                  <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1 text-left max-w-md mx-auto">
-                    <li>
-                      • Your face will be recognized automatically during
-                      streams
+                  <ul className="text-base text-gray-700 dark:text-gray-300 space-y-4 text-left">
+                    <li className="flex items-start gap-3">
+                      <span className="text-black dark:text-white font-medium">
+                        •
+                      </span>
+                      Your face will be recognized automatically during streams
                     </li>
-                    <li>• Non-whitelisted faces will be blurred for privacy</li>
-                    <li>• You can manage your whitelist settings anytime</li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-black dark:text-white font-medium">
+                        •
+                      </span>
+                      Non-whitelisted faces will be blurred for privacy
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-black dark:text-white font-medium">
+                        •
+                      </span>
+                      You can manage your whitelist settings anytime
+                    </li>
                   </ul>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button
-                    onClick={() => {
-                      setEnrollmentStep("intro");
-                      form.reset();
-                      setCapturedPhotos([]);
-                    }}
-                    variant="outline"
-                    className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                  >
-                    Enroll Another Person
-                  </Button>
-                  <Button className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
-                    Start Streaming →
-                  </Button>
-                </div>
               </CardContent>
+              <div className="flex justify-between px-6 pb-6 mt-auto">
+                <Button
+                  onClick={() => {
+                    setEnrollmentStep("intro");
+                    form.reset();
+                    setCapturedPhotos([]);
+                  }}
+                  variant="outline"
+                  className="border-gray-300 text-black hover:bg-gray-100 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+                >
+                  Enroll Another Person
+                </Button>
+                <Button
+                  onClick={createRoom}
+                  className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                >
+                  Start Streaming →
+                </Button>
+              </div>
             </Card>
           )}
         </div>
