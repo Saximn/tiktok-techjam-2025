@@ -7,3 +7,8 @@ datasets
 *.pt
 
 node_modules/
+
+# roomode
+/roomode.lock
+.roo/
+.roomodes
